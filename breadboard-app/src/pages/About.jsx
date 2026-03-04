@@ -54,46 +54,116 @@ export default function About() {
             </section>
 
             {/* ═══════════════════════════════════════
-          WHO WE ARE + WHAT WE DO — Split layout
+          WHO WE ARE — Image + text split
           ═══════════════════════════════════════ */}
-            <section ref={whoRef} className="py-28 md:py-36 bg-white">
-                <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                    <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-24">
-                        <div className={`${whoInView ? 'animate-slide-left' : 'opacity-0'}`}>
+            <section ref={whoRef} className="py-0 bg-white">
+                <div className="grid grid-cols-1 lg:grid-cols-2 min-h-[700px]">
+                    {/* Image side */}
+                    <div className={`relative overflow-hidden img-zoom ${whoInView ? 'animate-slide-left' : 'opacity-0'}`}>
+                        <img src="/images/strategy.png" alt="Advisory team at work" className="w-full h-full object-cover min-h-[400px]" />
+                        <div className="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent"></div>
+                        {/* Floating gold accent */}
+                        <div className="absolute bottom-8 left-8 right-8 p-6 bg-black/80 backdrop-blur-sm border-l-4 border-primary">
+                            <p className="text-white/90 text-sm italic leading-relaxed">"Building scalable, implementation-ready solutions that balance strategic intent with on-ground realities."</p>
+                        </div>
+                    </div>
+
+                    {/* Content side */}
+                    <div className={`flex items-center px-8 md:px-16 lg:px-20 py-20 ${whoInView ? 'animate-slide-right' : 'opacity-0'}`}>
+                        <div>
                             <span className="text-xs font-bold uppercase tracking-[0.2em] text-primary mb-3 block">Who We Are</span>
-                            <div className="section-divider mb-8"></div>
+                            <h2 className="text-3xl md:text-4xl font-extrabold text-black tracking-tight mb-8">
+                                Advisory at the Intersection of <span className="text-gradient">Responsibility & Impact</span>
+                            </h2>
                             <p className="text-black/50 leading-[1.8] mb-6 text-[15px]">
                                 Breadboard Consulting Pvt Ltd is a professional advisory and consulting firm working at the intersection of corporate responsibility, development programming, and institutional strengthening. We partner with corporates, development organizations, and public sector stakeholders to design high-impact programs, improve delivery systems, and support evidence-based decision-making.
                             </p>
-                            <p className="text-black/50 leading-[1.8] text-[15px]">
+                            <p className="text-black/50 leading-[1.8] mb-8 text-[15px]">
                                 Our work is focused on building scalable, implementation-ready solutions that balance strategic intent with on-ground realities. Breadboard brings together program design expertise, operational understanding, and analytical rigor to support organizations across the full project lifecycle.
                             </p>
-                        </div>
 
-                        <div className={`${whoInView ? 'animate-slide-right' : 'opacity-0'}`}>
-                            <span className="text-xs font-bold uppercase tracking-[0.2em] text-primary mb-3 block">What We Do</span>
-                            <div className="section-divider mb-8"></div>
-                            <p className="text-black/50 leading-[1.8] mb-6 text-[15px]">
-                                Breadboard Consulting supports organizations in designing, implementing, and strengthening development and impact-focused programs across diverse thematic areas and institutional contexts. We work with clients to translate strategic objectives into structured program models, operational frameworks, and measurable outcomes.
-                            </p>
-                            <p className="text-black/50 leading-[1.8] text-[15px]">
-                                Our work spans program advisory, institutional capacity building, impact measurement, research support, and strategic communication. By combining advisory expertise with execution-focused planning and data-driven evaluation, we help organizations improve performance, accountability, and long-term sustainability.
-                            </p>
+                            {/* Feature highlights */}
+                            <div className="grid grid-cols-2 gap-4">
+                                {[
+                                    { icon: 'architecture', label: 'Program Design' },
+                                    { icon: 'insights', label: 'Analytical Rigor' },
+                                    { icon: 'handshake', label: 'Institutional Partnerships' },
+                                    { icon: 'trending_up', label: 'Scalable Solutions' },
+                                ].map((f) => (
+                                    <div key={f.label} className="flex items-center gap-3 p-3 bg-cream/70 group hover:bg-primary/10 transition-colors duration-300">
+                                        <span className="material-symbols-outlined text-primary text-xl">{f.icon}</span>
+                                        <span className="text-xs font-bold uppercase tracking-wider text-black/50 group-hover:text-black transition-colors">{f.label}</span>
+                                    </div>
+                                ))}
+                            </div>
                         </div>
                     </div>
                 </div>
             </section>
 
             {/* ═══════════════════════════════════════
-          IMAGE BREAK — like Samagra
+          WHAT WE DO — Dark section with feature cards
+          ═══════════════════════════════════════ */}
+            <section className="py-28 md:py-36 bg-dark-surface relative overflow-hidden">
+                <div className="absolute inset-0 opacity-[0.03]"
+                    style={{ backgroundImage: "url(\"data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffbd59' fill-opacity='1'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E\")" }}
+                ></div>
+                <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+                    <div className="grid grid-cols-1 lg:grid-cols-5 gap-16">
+                        {/* Left — Heading */}
+                        <div className="lg:col-span-2">
+                            <span className="text-xs font-bold uppercase tracking-[0.2em] text-primary mb-3 block">What We Do</span>
+                            <h2 className="text-3xl md:text-4xl font-extrabold text-white tracking-tight mb-6">
+                                Translating Strategy Into <span className="text-gradient">Measurable Outcomes</span>
+                            </h2>
+                            <p className="text-white/30 leading-[1.8] text-[15px]">
+                                Breadboard Consulting supports organizations in designing, implementing, and strengthening development and impact-focused programs across diverse thematic areas and institutional contexts.
+                            </p>
+                            <Link to="/services" className="inline-flex items-center mt-8 text-sm font-bold text-primary hover:text-primary-dark uppercase tracking-wider group transition-colors">
+                                Explore Our Services
+                                <span className="material-symbols-outlined ml-1 text-base group-hover:translate-x-1 transition-transform">arrow_forward</span>
+                            </Link>
+                        </div>
+
+                        {/* Right — Feature cards */}
+                        <div className="lg:col-span-3 grid grid-cols-1 sm:grid-cols-2 gap-4">
+                            {[
+                                { icon: 'assignment', title: 'Program Advisory', desc: 'Structured program models and operational frameworks for impact delivery.' },
+                                { icon: 'school', title: 'Capacity Building', desc: 'Institutional strengthening and team development for sustained performance.' },
+                                { icon: 'monitoring', title: 'Impact Measurement', desc: 'Data-driven evaluation and performance reporting systems.' },
+                                { icon: 'campaign', title: 'Strategic Communication', desc: 'Positioning, outreach, and stakeholder engagement frameworks.' },
+                                { icon: 'search_insights', title: 'Research Support', desc: 'Evidence-based diagnostics, sector studies, and knowledge products.' },
+                                { icon: 'settings_suggest', title: 'Execution Planning', desc: 'Translating advisory into delivery-ready operational systems.' },
+                            ].map((f, i) => (
+                                <div key={f.title} className="group glass-card p-6 hover:bg-white/[0.06] transition-all duration-500 hover:border-primary/20">
+                                    <div className="flex items-center gap-3 mb-3">
+                                        <div className="w-10 h-10 bg-primary/10 flex items-center justify-center text-primary flex-shrink-0 group-hover:bg-primary group-hover:text-black transition-colors duration-300">
+                                            <span className="material-symbols-outlined text-lg">{f.icon}</span>
+                                        </div>
+                                        <h4 className="text-sm font-bold text-white group-hover:text-primary transition-colors">{f.title}</h4>
+                                    </div>
+                                    <p className="text-xs text-white/25 leading-relaxed pl-[52px]">{f.desc}</p>
+                                </div>
+                            ))}
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            {/* ═══════════════════════════════════════
+          IMAGE BREAK — Quote
           ═══════════════════════════════════════ */}
             <section className="relative h-[50vh] overflow-hidden img-zoom">
                 <img src="/images/impact.png" alt="Community impact" className="w-full h-full object-cover" />
-                <div className="absolute inset-0 bg-black/40"></div>
+                <div className="absolute inset-0 bg-black/50"></div>
                 <div className="absolute inset-0 flex items-center justify-center">
-                    <p className="text-2xl md:text-4xl font-extrabold text-white text-center max-w-3xl px-8 tracking-tight leading-tight">
-                        "Our approach emphasizes continuity, institutional capacity, and system-level impact."
-                    </p>
+                    <div className="text-center px-8">
+                        <div className="section-divider mx-auto mb-6"></div>
+                        <p className="text-2xl md:text-4xl font-extrabold text-white max-w-3xl tracking-tight leading-tight italic">
+                            "Continuity, institutional capacity, and system-level impact."
+                        </p>
+                        <p className="text-sm text-white/30 mt-4 uppercase tracking-[0.2em] font-semibold">Our Philosophy</p>
+                    </div>
                 </div>
             </section>
 
