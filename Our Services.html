@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Our Services - Breadboard Consulting</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,400;500;700&amp;family=Playfair+Display:wght@700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script>
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        primary: "#FBB040", // Solar Gold from logo
+                        secondary: "#1A1A1A", // Dark text
+                        "background-light": "#F9F6F0", // Beige/Cream background
+                        "background-dark": "#121212", // Dark mode background
+                        "surface-light": "#FFFFFF",
+                        "surface-dark": "#1E1E1E",
+                        "text-light": "#333333",
+                        "text-dark": "#E0E0E0",
+                        "accent-green": "#68BC45", 
+                    },
+                    fontFamily: {
+                        display: ["'Playfair Display'", "serif"],
+                        body: ["'DM Sans'", "sans-serif"],
+                    },
+                    borderRadius: {
+                        DEFAULT: "0.5rem",
+                    },
+                },
+            },
+        };
+    </script>
+<style type="text/tailwindcss">
+    :root {
+      --primary-color: #FBB040;
+    }
+    ::-webkit-scrollbar {
+        width: 8px;
+    }
+    ::-webkit-scrollbar-track {
+        background: transparent;
+    }
+    ::-webkit-scrollbar-thumb {
+        background-color: #cbd5e1;
+        border-radius: 20px;
+    }
+    .dark ::-webkit-scrollbar-thumb {
+        background-color: #475569;
+    }
+</style>
+</head>
+<body class="bg-background-light dark:bg-background-dark text-text-light dark:text-text-dark font-body transition-colors duration-300">
+<nav class="sticky top-0 z-50 bg-white/90 dark:bg-surface-dark/90 backdrop-blur-md border-b border-gray-200 dark:border-gray-800">
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+<div class="flex justify-between h-20">
+<div class="flex-shrink-0 flex items-center">
+<div class="flex items-center gap-2">
+<div class="h-8 border-l-4 border-b-4 border-primary pb-1 pl-2 flex items-end">
+<span class="text-3xl font-bold tracking-tight text-black dark:text-white leading-none">breadboard</span>
+</div>
+<div class="h-8 border-t-4 border-r-4 border-primary w-4 self-start"></div>
+</div>
+</div>
+<div class="hidden md:flex space-x-8 items-center">
+<a class="text-gray-700 dark:text-gray-300 hover:text-primary dark:hover:text-primary font-medium transition" href="#">About Us</a>
+<a class="text-primary font-bold dark:text-primary transition border-b-2 border-primary" href="#">Services</a>
+<a class="text-gray-700 dark:text-gray-300 hover:text-primary dark:hover:text-primary font-medium transition" href="#">Our Work</a>
+<a class="text-gray-700 dark:text-gray-300 hover:text-primary dark:hover:text-primary font-medium transition" href="#">Insights</a>
+<a class="px-5 py-2.5 bg-primary text-white font-medium rounded hover:bg-opacity-90 transition shadow-sm" href="#">Contact Us</a>
+</div>
+<div class="flex items-center md:hidden">
+<button class="text-gray-500 dark:text-gray-400 hover:text-primary focus:outline-none" type="button">
+<span class="material-symbols-outlined text-3xl">menu</span>
+</button>
+</div>
+</div>
+</div>
+</nav>
+<header class="relative bg-surface-light dark:bg-surface-dark py-20 lg:py-28 overflow-hidden">
+<div class="absolute inset-0 z-0 opacity-10 dark:opacity-5">
+<img alt="Abstract connecting lines pattern" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuA6zJjI_8XkLLwlYt5K1zyGivMbwQ3DGlbqTVHzYs3U2t6oCvmtBx1RrEJ-c6tn2ecVXDidfWcuwlksyuTg1Gg_fw6KEjEkeE8e6mUQKwtAnPj0Y_0AI4_MwEtVwpj9s323Ta3Wq4tF2iOuuV9Buuey-sZMCCw93h7MXxQ4CX5rfrjhBJMWzrOrgfO48QaoNdJaGSgQ7-goGzVAnj7OLNuRnFFC1W40g70JL-rW2YgdgR-wuFWzQ3l3rIjLMsIG3y-U0yB57ED9d4S7"/>
+</div>
+<div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+<h1 class="text-4xl md:text-6xl font-display font-bold text-gray-900 dark:text-white mb-6">
+                Transforming Vision into <span class="text-primary relative inline-block">Impact</span>
+</h1>
+<p class="max-w-2xl mx-auto text-xl text-gray-600 dark:text-gray-300 leading-relaxed">
+                We empower organizations with strategic insights, data-driven frameworks, and innovative solutions to bridge the gap between intent and outcome in the development sector.
+            </p>
+</div>
+</header>
+<main class="py-16 md:py-24 bg-background-light dark:bg-background-dark">
+<section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+<div class="text-center mb-16">
+<h2 class="text-sm font-bold text-primary tracking-widest uppercase mb-3">Our Core Services</h2>
+<h3 class="text-3xl md:text-4xl font-display font-bold text-gray-900 dark:text-white">Expertise Across The Value Chain</h3>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-10">
+<div class="bg-white dark:bg-surface-dark rounded-2xl shadow-sm border border-gray-100 dark:border-gray-800 overflow-hidden hover:shadow-lg transition-shadow duration-300 flex flex-col h-full">
+<div class="h-64 overflow-hidden relative group">
+<img alt="Corporate team discussing strategy" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCGSEsTe2lmn_f8cfFiYCUiQ3_iVhfT4exEva6iBq-5kAEzgQkrSJsO9mTurieJxNO_FcwpIEWQyyI0tgIpF8aeHwwTNtgGex_LGYmoH22QmgpQaINthbYX29IWuw7FjwzyM7uuiSlWwms4kz5BJfD70aG8XhzSeOar3mWuLD1xi8_jAEVJ4gENgR1DusWWbBUp304_DDmlW81Yu6vcYiMKepYBmJ5yoLLb1jZKP8gHb2lTbvRpQofdUaU6fhnrLybI3kEV-NMXAe_y"/>
+<div class="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-60"></div>
+<div class="absolute bottom-4 left-6">
+<span class="text-primary font-bold text-sm bg-white/90 backdrop-blur px-3 py-1 rounded-full shadow-sm">Advisory</span>
+</div>
+</div>
+<div class="p-8 flex flex-col flex-grow">
+<h3 class="text-2xl font-display font-bold text-gray-900 dark:text-white mb-4">CSR &amp; Corporate Advisory</h3>
+<p class="text-gray-600 dark:text-gray-300 mb-8 leading-relaxed flex-grow">
+                    Guiding corporations through the complex landscape of social responsibility, from compliance to strategic philanthropy that yields measurable returns.
+                </p>
+<div class="border-t border-gray-100 dark:border-gray-700 pt-6 mt-auto">
+<h4 class="text-primary font-bold text-xs uppercase tracking-wider mb-4">Key Offerings</h4>
+<ul class="space-y-3">
+<li class="flex items-start text-sm">
+<span class="material-symbols-outlined text-primary text-lg mr-2 mt-0.5">check_circle</span>
+<span class="text-gray-700 dark:text-gray-300">CSR Policy Formulation &amp; Compliance</span>
+</li>
+<li class="flex items-start text-sm">
+<span class="material-symbols-outlined text-primary text-lg mr-2 mt-0.5">check_circle</span>
+<span class="text-gray-700 dark:text-gray-300">Portfolio Design &amp; Partner Selection</span>
+</li>
+<li class="flex items-start text-sm">
+<span class="material-symbols-outlined text-primary text-lg mr-2 mt-0.5">check_circle</span>
+<span class="text-gray-700 dark:text-gray-300">Employee Engagement Programs</span>
+</li>
+<li class="flex items-start text-sm">
+<span class="material-symbols-outlined text-primary text-lg mr-2 mt-0.5">check_circle</span>
+<span class="text-gray-700 dark:text-gray-300">Impact Communication &amp; Reporting</span>
+</li>
+</ul>
+<a class="mt-6 inline-flex items-center text-primary font-bold hover:text-primary/80 transition text-sm" href="#">
+                        Learn More <span class="material-symbols-outlined ml-1 text-base">arrow_forward</span>
+</a>
+</div>
+</div>
+</div>
+<div class="bg-white dark:bg-surface-dark rounded-2xl shadow-sm border border-gray-100 dark:border-gray-800 overflow-hidden hover:shadow-lg transition-shadow duration-300 flex flex-col h-full">
+<div class="h-64 overflow-hidden relative group">
+<img alt="Community development project meeting" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAFKVS3QnZ1WxxDjLLI7-EWxmef04V_fohEI1yw8pgUfDFiJgjYoocqEA002U875savE6hERY520Gj94VPVZVyEZIUg4pbq3iuXLC7e0f45OX7aG9C0zu_k0SLyqOzngDkAjVdEuoHNEmsunwLj_IsHCUzSsDwFy8jZHsr76gz7iSvzzDYXGceCRK5tWN4IMjHJ-neHCeZECOtHFMzEo2v4AKWKW9qU9iCZNFWkJ2gC5MVOkeGaoatpgVjk7ceCkwo3U0klt4Nj5_jf"/>
+<div class="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-60"></div>
+<div class="absolute bottom-4 left-6">
+<span class="text-primary font-bold text-sm bg-white/90 backdrop-blur px-3 py-1 rounded-full shadow-sm">Consulting</span>
+</div>
+</div>
+<div class="p-8 flex flex-col flex-grow">
+<h3 class="text-2xl font-display font-bold text-gray-900 dark:text-white mb-4">Development &amp; Impact Consulting</h3>
+<p class="text-gray-600 dark:text-gray-300 mb-8 leading-relaxed flex-grow">
+                    Designing scalable programs for foundations and non-profits by combining rigorous field understanding with systems thinking.
+                </p>
+<div class="border-t border-gray-100 dark:border-gray-700 pt-6 mt-auto">
+<h4 class="text-primary font-bold text-xs uppercase tracking-wider mb-4">Key Offerings</h4>
+<ul class="space-y-3">
+<li class="flex items-start text-sm">
+<span class="material-symbols-outlined text-primary text-lg mr-2 mt-0.5">check_circle</span>
+<span class="text-gray-700 dark:text-gray-300">Program Design &amp; Theory of Change</span>
+</li>
+<li class="flex items-start text-sm">
+<span class="material-symbols-outlined text-primary text-lg mr-2 mt-0.5">check_circle</span>
+<span class="text-gray-700 dark:text-gray-300">Monitoring, Evaluation, and Learning (MEL)</span>
+</li>
+<li class="flex items-start text-sm">
+<span class="material-symbols-outlined text-primary text-lg mr-2 mt-0.5">check_circle</span>
+<span class="text-gray-700 dark:text-gray-300">Capacity Building for Partners</span>
+</li>
+<li class="flex items-start text-sm">
+<span class="material-symbols-outlined text-primary text-lg mr-2 mt-0.5">check_circle</span>
+<span class="text-gray-700 dark:text-gray-300">Large-scale Transformation Roadmaps</span>
+</li>
+</ul>
+<a class="mt-6 inline-flex items-center text-primary font-bold hover:text-primary/80 transition text-sm" href="#">
+                        Learn More <span class="material-symbols-outlined ml-1 text-base">arrow_forward</span>
+</a>
+</div>
+</div>
+</div>
+<div class="bg-white dark:bg-surface-dark rounded-2xl shadow-sm border border-gray-100 dark:border-gray-800 overflow-hidden hover:shadow-lg transition-shadow duration-300 flex flex-col h-full">
+<div class="h-64 overflow-hidden relative group">
+<img alt="Data analysis and research planning" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBcyhwatQlFkJ5rSX5mjUa-JWk-5c5UHq2NLXGYk06DldyR9ujoAcEn7wEjRIXWviReChkupnY4G5Jx_5QGzjJIRzBaWSFinFlLmFLjZ9yHkA23ewA8AVnlfbVbC8ZtcVA9RBhY3LWNa2lTetJy3kpGZp1zvnAT3YQjsy41n7UU9anFQLDjrreUFuYmsaAIS9G08zOZKIFJgwF66u_tT7lIcSpCUmcUHvanUYVBnwcm7qtTwq5CdH6owBdJa8uFjRvw3mYLzOA3SYvH"/>
+<div class="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-60"></div>
+<div class="absolute bottom-4 left-6">
+<span class="text-primary font-bold text-sm bg-white/90 backdrop-blur px-3 py-1 rounded-full shadow-sm">Research</span>
+</div>
+</div>
+<div class="p-8 flex flex-col flex-grow">
+<h3 class="text-2xl font-display font-bold text-gray-900 dark:text-white mb-4">Research &amp; Advocacy Advisory</h3>
+<p class="text-gray-600 dark:text-gray-300 mb-8 leading-relaxed flex-grow">
+                    Conducting deep-dive research to unearth insights that inform policy, shape public opinion, and drive evidence-based decision making.
+                </p>
+<div class="border-t border-gray-100 dark:border-gray-700 pt-6 mt-auto">
+<h4 class="text-primary font-bold text-xs uppercase tracking-wider mb-4">Key Offerings</h4>
+<ul class="space-y-3">
+<li class="flex items-start text-sm">
+<span class="material-symbols-outlined text-primary text-lg mr-2 mt-0.5">check_circle</span>
+<span class="text-gray-700 dark:text-gray-300">Primary &amp; Secondary Research Studies</span>
+</li>
+<li class="flex items-start text-sm">
+<span class="material-symbols-outlined text-primary text-lg mr-2 mt-0.5">check_circle</span>
+<span class="text-gray-700 dark:text-gray-300">Policy Briefs &amp; White Papers</span>
+</li>
+<li class="flex items-start text-sm">
+<span class="material-symbols-outlined text-primary text-lg mr-2 mt-0.5">check_circle</span>
+<span class="text-gray-700 dark:text-gray-300">Stakeholder Mapping &amp; Ecosystem Analysis</span>
+</li>
+<li class="flex items-start text-sm">
+<span class="material-symbols-outlined text-primary text-lg mr-2 mt-0.5">check_circle</span>
+<span class="text-gray-700 dark:text-gray-300">Advocacy Campaign Strategy</span>
+</li>
+</ul>
+<a class="mt-6 inline-flex items-center text-primary font-bold hover:text-primary/80 transition text-sm" href="#">
+                        Learn More <span class="material-symbols-outlined ml-1 text-base">arrow_forward</span>
+</a>
+</div>
+</div>
+</div>
+<div class="bg-white dark:bg-surface-dark rounded-2xl shadow-sm border border-gray-100 dark:border-gray-800 overflow-hidden hover:shadow-lg transition-shadow duration-300 flex flex-col h-full">
+<div class="h-64 overflow-hidden relative group">
+<img alt="Digital team collaborating on strategy" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDI8d2YYQTrcAUZP82FwAe-4_58eNf0tIT69y1zJZET5X0I7fbL99OsyytW1WSQkqx3Ww_JSG3mYOIeUE-lXms0qjCOydT67fNipi_t7-xl-oVY3j3sBeZwDlsXi7rSdEqz-w8FqKwZ1c7dNrzwDu-kH_mzHAfRMVpfPsZjKwGUuGi7NE7tuvqtfSE4-TArbBWnGVt4FLohbmRzpIWpsN-TimhYj1hG4yXVFb3Hzhh9pV8srq5ZarvUM2DdRW1sJG99yOrhUTjgkOMH"/>
+<div class="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-60"></div>
+<div class="absolute bottom-4 left-6">
+<span class="text-primary font-bold text-sm bg-white/90 backdrop-blur px-3 py-1 rounded-full shadow-sm">Digital</span>
+</div>
+</div>
+<div class="p-8 flex flex-col flex-grow">
+<h3 class="text-2xl font-display font-bold text-gray-900 dark:text-white mb-4">Marketing Strategy &amp; Enablement</h3>
+<p class="text-gray-600 dark:text-gray-300 mb-8 leading-relaxed flex-grow">
+                    Helping mission-driven organizations leverage technology and storytelling to amplify their voice and engage communities online.
+                </p>
+<div class="border-t border-gray-100 dark:border-gray-700 pt-6 mt-auto">
+<h4 class="text-primary font-bold text-xs uppercase tracking-wider mb-4">Key Offerings</h4>
+<ul class="space-y-3">
+<li class="flex items-start text-sm">
+<span class="material-symbols-outlined text-primary text-lg mr-2 mt-0.5">check_circle</span>
+<span class="text-gray-700 dark:text-gray-300">Digital Transformation &amp; CRM</span>
+</li>
+<li class="flex items-start text-sm">
+<span class="material-symbols-outlined text-primary text-lg mr-2 mt-0.5">check_circle</span>
+<span class="text-gray-700 dark:text-gray-300">Brand Storytelling &amp; Content Strategy</span>
+</li>
+<li class="flex items-start text-sm">
+<span class="material-symbols-outlined text-primary text-lg mr-2 mt-0.5">check_circle</span>
+<span class="text-gray-700 dark:text-gray-300">Growth Marketing &amp; SEO</span>
+</li>
+<li class="flex items-start text-sm">
+<span class="material-symbols-outlined text-primary text-lg mr-2 mt-0.5">check_circle</span>
+<span class="text-gray-700 dark:text-gray-300">User-centric UI/UX Design</span>
+</li>
+</ul>
+<a class="mt-6 inline-flex items-center text-primary font-bold hover:text-primary/80 transition text-sm" href="#">
+                        Learn More <span class="material-symbols-outlined ml-1 text-base">arrow_forward</span>
+</a>
+</div>
+</div>
+</div>
+</div>
+</section>
+</main>
+<section class="py-20 bg-white dark:bg-surface-dark border-t border-gray-100 dark:border-gray-800">
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+<h2 class="text-3xl md:text-4xl font-display font-bold text-gray-900 dark:text-white mb-4">How We Work</h2>
+<p class="max-w-2xl mx-auto text-gray-600 dark:text-gray-300 mb-16">Our engagement model is designed to be collaborative, iterative, and results-oriented.</p>
+<div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+<div class="relative">
+<div class="w-16 h-16 mx-auto bg-primary text-white rounded-full flex items-center justify-center text-2xl font-bold mb-4 shadow-md">1</div>
+<h3 class="text-xl font-bold text-gray-900 dark:text-white mb-2">Diagnose</h3>
+<p class="text-sm text-gray-600 dark:text-gray-400">We start by deeply understanding the problem, the context, and the stakeholders.</p>
+<div class="hidden md:block absolute top-8 left-1/2 w-full h-0.5 bg-gray-200 dark:bg-gray-700 -z-10"></div>
+</div>
+<div class="relative">
+<div class="w-16 h-16 mx-auto bg-white border-2 border-primary text-primary rounded-full flex items-center justify-center text-2xl font-bold mb-4">2</div>
+<h3 class="text-xl font-bold text-gray-900 dark:text-white mb-2">Design</h3>
+<p class="text-sm text-gray-600 dark:text-gray-400">Co-creating solutions that are tailored, scalable, and sustainable.</p>
+<div class="hidden md:block absolute top-8 left-1/2 w-full h-0.5 bg-gray-200 dark:bg-gray-700 -z-10"></div>
+</div>
+<div class="relative">
+<div class="w-16 h-16 mx-auto bg-white border-2 border-primary text-primary rounded-full flex items-center justify-center text-2xl font-bold mb-4">3</div>
+<h3 class="text-xl font-bold text-gray-900 dark:text-white mb-2">Deliver</h3>
+<p class="text-sm text-gray-600 dark:text-gray-400">Implementing with agility, ensuring quality execution on the ground.</p>
+<div class="hidden md:block absolute top-8 left-1/2 w-full h-0.5 bg-gray-200 dark:bg-gray-700 -z-10"></div>
+</div>
+<div class="relative">
+<div class="w-16 h-16 mx-auto bg-white border-2 border-primary text-primary rounded-full flex items-center justify-center text-2xl font-bold mb-4">4</div>
+<h3 class="text-xl font-bold text-gray-900 dark:text-white mb-2">Data</h3>
+<p class="text-sm text-gray-600 dark:text-gray-400">Continuous measurement and feedback loops to optimize impact.</p>
+</div>
+</div>
+</div>
+</section>
+<section class="py-20 bg-primary relative overflow-hidden">
+<div class="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/cubes.png')] opacity-10"></div>
+<div class="max-w-4xl mx-auto px-4 text-center relative z-10">
+<h2 class="text-3xl md:text-4xl font-display font-bold text-white mb-6">Ready to create lasting change?</h2>
+<p class="text-xl text-white/90 mb-8">Let's discuss how we can partner to amplify your social impact.</p>
+<div class="flex flex-col sm:flex-row gap-4 justify-center">
+<button class="px-8 py-3 bg-white text-primary font-bold rounded-lg hover:bg-gray-50 transition shadow-lg border border-transparent">
+                    Schedule a Consultation
+                </button>
+<button class="px-8 py-3 bg-transparent border-2 border-white text-white font-bold rounded-lg hover:bg-white/10 transition">
+                    View Our Portfolio
+                </button>
+</div>
+</div>
+</section>
+<footer class="bg-gray-900 text-gray-300 py-12 border-t border-gray-800">
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+<div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+<div class="col-span-1 md:col-span-1">
+<div class="flex items-center gap-2 mb-4">
+<div class="h-6 border-l-2 border-b-2 border-primary pb-1 pl-2 flex items-end">
+<span class="text-xl font-bold tracking-tight text-white leading-none">breadboard</span>
+</div>
+<div class="h-6 border-t-2 border-r-2 border-primary w-3 self-start"></div>
+</div>
+<p class="text-sm text-gray-400">
+                        Bridging the gap between intent and impact through strategic consulting and innovative solutions.
+                    </p>
+</div>
+<div>
+<h4 class="text-white font-bold mb-4">Services</h4>
+<ul class="space-y-2 text-sm">
+<li><a class="hover:text-primary transition" href="#">CSR Advisory</a></li>
+<li><a class="hover:text-primary transition" href="#">Impact Consulting</a></li>
+<li><a class="hover:text-primary transition" href="#">Research &amp; Advocacy</a></li>
+<li><a class="hover:text-primary transition" href="#">Digital Enablement</a></li>
+</ul>
+</div>
+<div>
+<h4 class="text-white font-bold mb-4">Company</h4>
+<ul class="space-y-2 text-sm">
+<li><a class="hover:text-primary transition" href="#">About Us</a></li>
+<li><a class="hover:text-primary transition" href="#">Team</a></li>
+<li><a class="hover:text-primary transition" href="#">Careers</a></li>
+<li><a class="hover:text-primary transition" href="#">Contact</a></li>
+</ul>
+</div>
+<div>
+<h4 class="text-white font-bold mb-4">Connect</h4>
+<div class="flex space-x-4">
+<a class="text-gray-400 hover:text-white transition" href="#"><span class="material-symbols-outlined">email</span></a>
+<a class="text-gray-400 hover:text-white transition" href="#"><span class="material-symbols-outlined">share</span></a>
+</div>
+<p class="text-xs text-gray-500 mt-4">
+                        © 2024 Breadboard Consulting. All rights reserved.
+                    </p>
+</div>
+</div>
+</div>
+</footer>
+</body></html>
