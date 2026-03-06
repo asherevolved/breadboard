@@ -67,8 +67,16 @@ const serviceBlocks = [
     },
 ];
 
+const partners = [
+    { icon: 'domain', title: 'Corporates & CSR Foundations', desc: 'We work with corporate CSR teams, industry institutions, and corporate foundations to design compliant, strategy-aligned portfolios and build structured delivery and performance systems. Our support spans program architecture, implementation oversight, impact measurement, and governance-aligned reporting frameworks.' },
+    { icon: 'volunteer_activism', title: 'Not-for-Profit & Development Organizations', desc: 'We support non-profit institutions, development agencies, social enterprises and philanthropic organizations in strengthening program design, operational systems, monitoring frameworks, and impact communication. Our work includes strategic positioning, knowledge products, digital presence strengthening, and stakeholder engagement frameworks that enhance credibility and outreach.' },
+    { icon: 'account_balance', title: 'Public Systems & Government Institutions', desc: 'We engage with public institutions and government stakeholders to support structured planning, institutional strengthening, performance accountability, and evidence-based decision systems across sectors and geographies.' },
+    { icon: 'lightbulb', title: 'Mission-Driven Institutions & Sectoral Organizations', desc: 'We work with business enterprises, educational institutions, and healthcare systems to strengthen governance, operational delivery, brand positioning, and structured communication strategies. Our support helps institutions align program execution with strategic visibility, stakeholder engagement, and long-term sustainability.' },
+];
+
 export default function Services() {
     const [heroRef, heroInView] = useInView(0.1);
+    const [partnersRef, partnersInView] = useInView();
 
     return (
         <>
@@ -95,18 +103,64 @@ export default function Services() {
                         Our <span className="text-gradient">Services</span>
                     </h1>
                     <p className={`max-w-3xl mx-auto text-lg md:text-xl text-white/40 leading-relaxed ${heroInView ? 'animate-fade-up delay-400' : 'opacity-0'}`}>
-                        We work across the spectrum of advisory, program design, and institutional strengthening — delivering structured, measurable, and sustainable outcomes.
+                        We provide advisory and implementation support that enables institutions to design stronger programs, build reliable systems, and demonstrate measurable impact. Our services span strategy, delivery, evaluation, and institutional communication.
                     </p>
                 </div>
             </section>
 
             {/* ═══════════════════════════════════════
-          SERVICES — Alternating layout like Samagra's "Our Work"
+          SERVICES — Alternating layout
           ═══════════════════════════════════════ */}
             {serviceBlocks.map((svc, i) => {
                 const isEven = i % 2 === 0;
                 return <ServiceBlock key={svc.id} svc={svc} isEven={isEven} index={i} />;
             })}
+
+            {/* ═══════════════════════════════════════
+          WHO WE WORK WITH
+          ═══════════════════════════════════════ */}
+            <section ref={partnersRef} className="py-28 md:py-36 bg-dark-surface relative overflow-hidden">
+                {/* Background pattern */}
+                <div className="absolute inset-0 opacity-[0.03]"
+                    style={{ backgroundImage: "url(\"data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffbd59' fill-opacity='1'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E\")" }}
+                ></div>
+
+                <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+                    <div className={`text-center mb-20 ${partnersInView ? 'animate-fade-up' : 'opacity-0'}`}>
+                        <span className="text-xs font-bold uppercase tracking-[0.2em] text-primary mb-4 block">Who We Work With</span>
+                        <h2 className="text-3xl md:text-5xl font-extrabold text-white tracking-tight mb-6">
+                            Who We Work With
+                        </h2>
+                        <p className="text-lg text-white/30 max-w-3xl mx-auto leading-relaxed">
+                            We partner with institutions across sectors that are committed to structured, measurable, and sustainable impact.
+                        </p>
+                    </div>
+
+                    <div className={`grid grid-cols-1 md:grid-cols-2 gap-6 ${partnersInView ? 'animate-fade-up delay-200' : 'opacity-0'}`}>
+                        {partners.map((p) => (
+                            <div
+                                key={p.title}
+                                className="group relative glass-card p-8 md:p-10 hover:bg-white/[0.06] transition-all duration-500 hover:border-primary/20 gold-glow hover:shadow-primary/5"
+                            >
+                                {/* Number accent */}
+                                <div className="absolute top-6 right-8 text-6xl font-extrabold text-white/[0.03] select-none">
+                                    {String(partners.indexOf(p) + 1).padStart(2, '0')}
+                                </div>
+
+                                <div className="flex items-start gap-5 mb-5">
+                                    <div className="w-14 h-14 bg-primary/10 flex items-center justify-center text-primary flex-shrink-0 group-hover:bg-primary group-hover:text-black transition-colors duration-300">
+                                        <span className="material-symbols-outlined text-2xl">{p.icon}</span>
+                                    </div>
+                                    <div>
+                                        <h3 className="text-lg font-bold text-white group-hover:text-primary transition-colors mb-3">{p.title}</h3>
+                                        <p className="text-sm text-white/30 leading-relaxed">{p.desc}</p>
+                                    </div>
+                                </div>
+                            </div>
+                        ))}
+                    </div>
+                </div>
+            </section>
 
             {/* ═══════════════════════════════════════
           CTA
@@ -119,10 +173,10 @@ export default function Services() {
                 <div className="relative max-w-4xl mx-auto px-4 text-center">
                     <div className="section-divider mx-auto mb-8"></div>
                     <h2 className="text-3xl md:text-5xl font-extrabold text-white mb-6 tracking-tight">
-                        Let's design your impact strategy
+                        Let's Build Impact That Lasts
                     </h2>
                     <p className="text-lg text-white/40 mb-10 max-w-2xl mx-auto leading-relaxed">
-                        Connect with us to explore how Breadboard can support your organization's strategic objectives.
+                        Connect with us to design structured, scalable, and measurable impact systems.
                     </p>
                     <Link
                         to="/contact"

@@ -51,7 +51,8 @@ export default function Footer() {
                                 { to: '/about', label: 'About Us' },
                                 { to: '/services', label: 'Services' },
                                 { to: '/contact', label: 'Contact' },
-                                { to: '/contact#careers', label: 'Careers' },
+                                { to: '/career', label: 'Careers' },
+                                { to: '/bbx', label: 'BBX' },
                             ].map(({ to, label }) => (
                                 <li key={label}><Link to={to} className="text-sm text-white/30 hover:text-primary transition-colors duration-300">{label}</Link></li>
                             ))}
@@ -77,10 +78,6 @@ export default function Footer() {
                     <div className="md:col-span-3">
                         <h3 className="text-[11px] font-bold text-primary uppercase tracking-[0.2em] mb-6">Get in Touch</h3>
                         <div className="space-y-4">
-                            <p className="text-sm text-white/30">
-                                <a href="mailto:connect@breadboard.in" className="hover:text-primary transition-colors">connect@breadboard.in</a>
-                            </p>
-                            <p className="text-sm text-white/30">New Delhi, India</p>
                         </div>
                         <div className="mt-8 pt-6 border-t border-white/5">
                             <Link

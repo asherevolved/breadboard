@@ -38,7 +38,6 @@ export default function Contact() {
     const [submitted, setSubmitted] = useState(false);
     const [heroRef, heroInView] = useInView(0.1);
     const [formRef, formInView] = useInView();
-    const [careerRef, careerInView] = useInView();
 
     const handleSubmit = (e) => {
         e.preventDefault();
@@ -85,41 +84,20 @@ export default function Contact() {
                         <div className="lg:col-span-2">
                             <span className="text-xs font-bold uppercase tracking-[0.2em] text-primary mb-3 block">Get in Touch</span>
                             <div className="section-divider mb-8"></div>
-                            <p className="text-black/40 leading-relaxed mb-10 text-[15px]">
-                                Whether you're a corporate looking to strengthen your CSR portfolio or an institution seeking strategic advisory — we'd love to hear from you.
-                            </p>
-
-                            <div className="space-y-8">
-                                <div className="flex items-start gap-4 group">
-                                    <div className="w-12 h-12 bg-primary/8 flex items-center justify-center flex-shrink-0 text-primary group-hover:bg-primary group-hover:text-black transition-colors duration-300">
-                                        <span className="material-symbols-outlined text-xl">mail</span>
-                                    </div>
-                                    <div>
-                                        <h3 className="text-sm font-bold text-black mb-1">Email</h3>
-                                        <a href="mailto:connect@breadboard.in" className="text-sm text-black/40 hover:text-primary transition-colors">
-                                            connect@breadboard.in
-                                        </a>
-                                    </div>
-                                </div>
-
-                                <div className="flex items-start gap-4 group">
-                                    <div className="w-12 h-12 bg-primary/8 flex items-center justify-center flex-shrink-0 text-primary group-hover:bg-primary group-hover:text-black transition-colors duration-300">
-                                        <span className="material-symbols-outlined text-xl">location_on</span>
-                                    </div>
-                                    <div>
-                                        <h3 className="text-sm font-bold text-black mb-1">Office</h3>
-                                        <p className="text-sm text-black/40">New Delhi, India</p>
-                                    </div>
-                                </div>
-                            </div>
 
                             {/* Social */}
                             <div className="mt-10 pt-8 border-t border-black/5">
                                 <h3 className="text-xs font-bold uppercase tracking-[0.2em] text-black/30 mb-4">Follow Us</h3>
                                 <div className="flex gap-3">
-                                    {['LinkedIn', 'X', 'YouTube', 'Instagram', 'Facebook'].map((name) => (
+                                    {[
+                                        { name: 'LinkedIn', icon: <svg className="h-4 w-4" fill="currentColor" viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"></path></svg> },
+                                        { name: 'X', icon: <svg className="h-4 w-4" fill="currentColor" viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"></path></svg> },
+                                        { name: 'YouTube', icon: <svg className="h-4 w-4" fill="currentColor" viewBox="0 0 24 24"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"></path></svg> },
+                                        { name: 'Instagram', icon: <svg className="h-4 w-4" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"></path></svg> },
+                                        { name: 'Facebook', icon: <svg className="h-4 w-4" fill="currentColor" viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"></path></svg> },
+                                    ].map(({ name, icon }) => (
                                         <a key={name} href="#" className="w-10 h-10 bg-black/5 flex items-center justify-center text-black/30 hover:bg-primary hover:text-black transition-all duration-300" aria-label={name}>
-                                            <span className="text-xs font-bold">{name[0]}</span>
+                                            {icon}
                                         </a>
                                     ))}
                                 </div>
@@ -206,56 +184,6 @@ export default function Contact() {
                                 </div>
                             )}
                         </div>
-                    </div>
-                </div>
-            </section>
-
-            {/* ═══════════════════════════════════════
-          CAREERS
-          ═══════════════════════════════════════ */}
-            <section ref={careerRef} id="careers" className="py-28 md:py-36 bg-black relative overflow-hidden">
-                <div className="absolute inset-0 opacity-[0.03]"
-                    style={{ backgroundImage: "url(\"data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffbd59' fill-opacity='1'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E\")" }}
-                ></div>
-
-                <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-                    <div className={`text-center mb-16 ${careerInView ? 'animate-fade-up' : 'opacity-0'}`}>
-                        <span className="text-xs font-bold uppercase tracking-[0.2em] text-primary mb-4 block">Careers</span>
-                        <h2 className="text-3xl md:text-5xl font-extrabold text-white tracking-tight mb-6">
-                            Work With Us
-                        </h2>
-                        <p className="max-w-3xl mx-auto text-lg text-white/30 leading-relaxed">
-                            At Breadboard, we engage with complex institutional challenges that demand clarity, accountability, and thoughtful execution. We value structural thinking, execution discipline, analytical rigor, and institutional integrity.
-                        </p>
-                    </div>
-
-                    <div className={`grid grid-cols-2 md:grid-cols-4 gap-4 mb-16 ${careerInView ? 'animate-fade-up delay-200' : 'opacity-0'}`}>
-                        {[
-                            { icon: 'psychology', label: 'Structural Thinking' },
-                            { icon: 'precision_manufacturing', label: 'Execution Discipline' },
-                            { icon: 'analytics', label: 'Analytical Rigor' },
-                            { icon: 'verified', label: 'Institutional Integrity' },
-                        ].map((v) => (
-                            <div key={v.label} className="group glass-card p-6 text-center hover:bg-white/[0.06] transition-all duration-300">
-                                <div className="w-12 h-12 mx-auto mb-4 bg-primary/10 flex items-center justify-center text-primary group-hover:bg-primary group-hover:text-black transition-colors duration-300">
-                                    <span className="material-symbols-outlined text-xl">{v.icon}</span>
-                                </div>
-                                <span className="text-xs font-bold text-white/60 uppercase tracking-wider">{v.label}</span>
-                            </div>
-                        ))}
-                    </div>
-
-                    <div className={`glass-card p-8 md:p-12 flex flex-col md:flex-row items-center justify-between gap-8 ${careerInView ? 'animate-fade-up delay-400' : 'opacity-0'}`}>
-                        <div>
-                            <h3 className="text-xl font-bold text-white mb-2">Interested in joining our team?</h3>
-                            <p className="text-white/30 text-sm">
-                                If these values resonate with you, we invite you to apply for the open roles that align with your expertise.
-                            </p>
-                        </div>
-                        <a href="#" className="flex-shrink-0 inline-flex items-center px-8 py-4 text-sm font-bold uppercase tracking-wider text-black bg-primary hover:bg-primary-dark transition-all duration-300 shadow-lg shadow-primary/20 group">
-                            View Open Roles
-                            <span className="material-symbols-outlined ml-2 text-lg group-hover:translate-x-1 transition-transform">arrow_forward</span>
-                        </a>
                     </div>
                 </div>
             </section>
