@@ -19,7 +19,7 @@ export default function Footer() {
                                 <span className="border-r-[2px] border-t-[2px] border-primary h-6 w-2 ml-0.5 relative bottom-[1px] inline-block"></span>
                             </div>
                         </Link>
-                        <p className="text-[15px] text-white/30 leading-relaxed max-w-sm mb-8">
+                        <p className="text-[15px] text-white leading-relaxed max-w-sm mb-8">
                             Strategic advisory for CSR, development, and institutional impact. Designing structured systems that translate intent into measurable action.
                         </p>
                         {/* Social */}
@@ -34,7 +34,7 @@ export default function Footer() {
                                 <a
                                     key={name}
                                     href="#"
-                                    className="w-10 h-10 bg-white/5 hover:bg-primary hover:text-black flex items-center justify-center transition-all duration-300 text-white/30"
+                                    className="w-10 h-10 bg-white/5 hover:bg-primary hover:text-black flex items-center justify-center transition-all duration-300 text-white"
                                     aria-label={name}
                                 >
                                     {icon}
@@ -54,7 +54,7 @@ export default function Footer() {
                                 { to: '/career', label: 'Careers' },
                                 { to: '/bbx', label: 'BBX' },
                             ].map(({ to, label }) => (
-                                <li key={label}><Link to={to} className="text-sm text-white/30 hover:text-primary transition-colors duration-300">{label}</Link></li>
+                                <li key={label}><Link to={to} className="text-sm text-white hover:text-primary transition-colors duration-300">{label}</Link></li>
                             ))}
                         </ul>
                     </div>
@@ -69,7 +69,7 @@ export default function Footer() {
                                 'Research & Advocacy Advisory',
                                 'Marketing & Digital Enablement',
                             ].map((s) => (
-                                <li key={s}><Link to="/services" className="text-sm text-white/30 hover:text-primary transition-colors duration-300">{s}</Link></li>
+                                <li key={s}><Link to="/services" className="text-sm text-white hover:text-primary transition-colors duration-300">{s}</Link></li>
                             ))}
                         </ul>
                     </div>
@@ -93,10 +93,10 @@ export default function Footer() {
 
                 {/* Bottom */}
                 <div className="border-t border-white/5 pt-8 flex flex-col md:flex-row justify-between items-center">
-                    <p className="text-xs text-white/20 tracking-wider">© {year} Breadboard Consulting Pvt Ltd. All rights reserved.</p>
+                    <p className="text-xs text-white tracking-wider">© {year} Breadboard Consulting Pvt Ltd. All rights reserved.</p>
                     <div className="flex gap-8 mt-4 md:mt-0">
-                        <a href="#" className="text-xs text-white/20 hover:text-white/50 transition-colors tracking-wider">Privacy Policy</a>
-                        <a href="#" className="text-xs text-white/20 hover:text-white/50 transition-colors tracking-wider">Terms of Service</a>
+                        <a href="#" className="text-xs text-white hover:text-white/50 transition-colors tracking-wider">Privacy Policy</a>
+                        <a href="#" className="text-xs text-white hover:text-white/50 transition-colors tracking-wider">Terms of Service</a>
                     </div>
                 </div>
             </div>
