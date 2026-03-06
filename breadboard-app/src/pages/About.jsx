@@ -54,24 +54,57 @@ export default function About() {
             </section>
 
             {/* ═══════════════════════════════════════
-          ABOUT US — Intro
+          WHO WE ARE — Image + text split
           ═══════════════════════════════════════ */}
-            <section ref={whoRef} className="py-28 md:py-36 bg-dark-surface relative overflow-hidden">
+            <section ref={whoRef} className="py-0 bg-white">
+                <div className="grid grid-cols-1 lg:grid-cols-2 min-h-[700px]">
+                    {/* Image side */}
+                    <div className={`relative overflow-hidden img-zoom ${whoInView ? 'animate-slide-left' : 'opacity-0'}`}>
+                        <img src="/images/strategy.png" alt="Advisory team at work" className="w-full h-full object-cover min-h-[400px]" />
+                        <div className="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent"></div>
+                    </div>
+
+                    {/* Content side */}
+                    <div className={`flex items-center px-8 md:px-16 lg:px-20 py-20 ${whoInView ? 'animate-slide-right' : 'opacity-0'}`}>
+                        <div>
+                            <span className="text-xs font-bold uppercase tracking-[0.2em] text-primary mb-3 block">Who We Are</span>
+                            <h2 className="text-3xl md:text-4xl font-extrabold text-black tracking-tight mb-8">
+                                Who We Are
+                            </h2>
+                            <p className="text-black/50 leading-[1.8] mb-6 text-[15px]">
+                                Breadboard Consulting Pvt Ltd is a professional advisory and consulting firm working at the intersection of corporate responsibility, development programming, and institutional strengthening. We partner with corporates, development organizations, and public sector stakeholders to design high-impact programs, improve delivery systems, and support evidence-based decision-making.
+                            </p>
+                            <p className="text-black/50 leading-[1.8] mb-8 text-[15px]">
+                                Our work is focused on building scalable, implementation-ready solutions that balance strategic intent with on-ground realities. Breadboard brings together program design expertise, operational understanding, and analytical rigor to support organizations across the full project lifecycle.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            {/* ═══════════════════════════════════════
+          WHAT WE DO — Dark section with feature cards
+          ═══════════════════════════════════════ */}
+            <section className="py-28 md:py-36 bg-dark-surface relative overflow-hidden">
                 <div className="absolute inset-0 opacity-[0.03]"
                     style={{ backgroundImage: "url(\"data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffbd59' fill-opacity='1'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E\")" }}
                 ></div>
                 <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-                    <div className={`text-center ${whoInView ? 'animate-fade-up' : 'opacity-0'}`}>
-                        <span className="text-xs font-bold uppercase tracking-[0.2em] text-primary mb-3 block">About Us</span>
+                    <div className="text-center">
+                        <span className="text-xs font-bold uppercase tracking-[0.2em] text-primary mb-3 block">What We Do</span>
                         <h2 className="text-3xl md:text-4xl font-extrabold text-white tracking-tight mb-6">
-                            Breadboard Consulting
+                            What We Do
                         </h2>
-                        <p className="text-white/40 leading-[1.8] text-[16px] max-w-3xl mx-auto mb-6">
-                            Breadboard supports organizations in designing, implementing, and strengthening development and impact-focused programs across diverse thematic areas and institutional contexts. We work with clients to translate strategic objectives into structured program models, operational frameworks, and measurable outcomes.
+                        <p className="text-white/30 leading-[1.8] text-[15px] max-w-3xl mx-auto mb-6">
+                            Breadboard Consulting supports organizations in designing, implementing, and strengthening development and impact-focused programs across diverse thematic areas and institutional contexts. We work with clients to translate strategic objectives into structured program models, operational frameworks, and measurable outcomes.
                         </p>
-                        <p className="text-white/40 leading-[1.8] text-[16px] max-w-3xl mx-auto mb-8">
+                        <p className="text-white/30 leading-[1.8] text-[15px] max-w-3xl mx-auto mb-8">
                             Our work spans program advisory, institutional capacity building, impact measurement, research support, and strategic communication. By combining advisory expertise with execution-focused planning and data-driven evaluation, we help organizations improve performance, accountability, and long-term sustainability.
                         </p>
+                        <Link to="/services" className="inline-flex items-center mt-4 text-sm font-bold text-primary hover:text-primary-dark uppercase tracking-wider group transition-colors">
+                            Explore Our Services
+                            <span className="material-symbols-outlined ml-1 text-base group-hover:translate-x-1 transition-transform">arrow_forward</span>
+                        </Link>
                     </div>
                 </div>
             </section>
