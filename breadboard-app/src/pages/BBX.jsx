@@ -339,21 +339,21 @@ export default function BBX() {
                     <div className={`grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-start ${askInView ? 'animate-fade-up' : 'opacity-0'}`}>
                         {/* LEFT — Ask Bred heading + description + Bred illustration */}
                         <div className="lg:sticky lg:top-32">
-                            <span className="text-xs font-bold uppercase tracking-[0.2em] text-primary mb-4 block">Ask Bred</span>
+                            <span className="text-xs font-bold uppercase tracking-[0.2em] text-primary mb-4 block">Q&A</span>
                             <div className="section-divider mb-6"></div>
 
                             <h2 className="text-3xl md:text-5xl font-extrabold text-white tracking-tight mb-6">
-                                Got a Question?
+                                Ask Bred
                             </h2>
 
                             <div className="space-y-4 mb-10">
-                                <p className="text-lg text-white/30 leading-relaxed">
+                                <p className="text-lg text-white leading-relaxed">
                                     Bred spends an unhealthy amount of time going down research rabbit holes and talking to interesting people. If there's something you've been wondering about — an idea, a trend, a confusing concept, or something odd you've noticed in the sector — send it in.
                                 </p>
-                                <p className="text-white/40 text-sm italic">
+                                <p className="text-white text-sm italic">
                                     If it sparks Bred's curiosity, it might turn into a BBX post, a conversation, or a curious little investigation.
                                 </p>
-                                <p className="text-primary/60 text-sm font-semibold">Drop your question below. Bred reads everything.</p>
+                                <p className="text-primary text-sm font-bold">Drop your question below. Bred reads everything.</p>
                             </div>
 
                             {/* Bred illustration */}
@@ -367,14 +367,14 @@ export default function BBX() {
                                     />
                                 </div>
                                 <div>
-                                    <p className="text-white/25 text-sm leading-relaxed max-w-xs">
+                                    <p className="text-white text-sm leading-relaxed max-w-xs">
                                         <span className="text-primary font-semibold">"</span>
                                         I'm curious about everything. Give me something fun to investigate.
                                         <span className="text-primary font-semibold">"</span>
                                     </p>
                                     <div className="mt-3 flex gap-2">
                                         {['🔍', '📝', '☕', '🧠'].map((emoji, idx) => (
-                                            <span key={idx} className="text-xl opacity-30 hover:opacity-80 transition-opacity cursor-default" style={{ animationDelay: `${idx * 0.3}s` }}>
+                                            <span key={idx} className="text-xl opacity-100 hover:scale-110 transition-transform cursor-default" style={{ animationDelay: `${idx * 0.3}s` }}>
                                                 {emoji}
                                             </span>
                                         ))}
@@ -391,7 +391,7 @@ export default function BBX() {
                                         <span className="material-symbols-outlined text-primary text-4xl">mail</span>
                                     </div>
                                     <h3 className="text-2xl font-bold text-white mb-4">Bred's on it!</h3>
-                                    <p className="text-white/30 max-w-md mx-auto">
+                                    <p className="text-white max-w-md mx-auto">
                                         Your question has been received. If it sparks something, you'll see it pop up on BBX.
                                     </p>
                                 </div>
@@ -400,46 +400,44 @@ export default function BBX() {
                                     {/* Form header */}
                                     <div className="absolute top-0 left-0 w-full h-[3px] bg-gradient-to-r from-primary via-primary-dark to-primary"></div>
 
-                                    <h3 className="text-lg font-bold text-white/80 mb-6">Form</h3>
-
-                                    <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+                                    <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6 mt-2">
                                         <div>
-                                            <label htmlFor="ask-name" className="block text-[11px] font-bold uppercase tracking-[0.15em] text-white/30 mb-2">
+                                            <label htmlFor="ask-name" className="block text-[11px] font-bold uppercase tracking-[0.15em] text-white mb-2">
                                                 Name <span className="text-primary">*</span>
                                             </label>
-                                            <input type="text" id="ask-name" required className="w-full border-0 border-b-2 border-white/10 bg-transparent py-3 text-sm text-white placeholder-white/20 focus:border-primary focus:ring-0 transition-colors" placeholder="Your name" />
+                                            <input type="text" id="ask-name" required className="w-full border-0 border-b-2 border-white/20 bg-transparent py-3 text-sm text-white placeholder-white/50 focus:border-primary focus:ring-0 transition-colors" placeholder="Your name" />
                                         </div>
                                         <div>
-                                            <label htmlFor="ask-email" className="block text-[11px] font-bold uppercase tracking-[0.15em] text-white/30 mb-2">
+                                            <label htmlFor="ask-email" className="block text-[11px] font-bold uppercase tracking-[0.15em] text-white mb-2">
                                                 Email <span className="text-primary">*</span>
                                             </label>
-                                            <input type="email" id="ask-email" required className="w-full border-0 border-b-2 border-white/10 bg-transparent py-3 text-sm text-white placeholder-white/20 focus:border-primary focus:ring-0 transition-colors" placeholder="you@email.com" />
+                                            <input type="email" id="ask-email" required className="w-full border-0 border-b-2 border-white/20 bg-transparent py-3 text-sm text-white placeholder-white/50 focus:border-primary focus:ring-0 transition-colors" placeholder="you@email.com" />
                                         </div>
                                     </div>
 
                                     <div className="mb-6">
-                                        <label htmlFor="ask-org" className="block text-[11px] font-bold uppercase tracking-[0.15em] text-white/30 mb-2">
-                                            Organization <span className="text-white/15">(Optional)</span>
+                                        <label htmlFor="ask-org" className="block text-[11px] font-bold uppercase tracking-[0.15em] text-white mb-2">
+                                            Organization <span className="text-white/60">(Optional)</span>
                                         </label>
-                                        <input type="text" id="ask-org" className="w-full border-0 border-b-2 border-white/10 bg-transparent py-3 text-sm text-white placeholder-white/20 focus:border-primary focus:ring-0 transition-colors" placeholder="Your organization" />
+                                        <input type="text" id="ask-org" className="w-full border-0 border-b-2 border-white/20 bg-transparent py-3 text-sm text-white placeholder-white/50 focus:border-primary focus:ring-0 transition-colors" placeholder="Your organization" />
                                     </div>
 
                                     <div className="mb-8">
-                                        <label htmlFor="ask-question" className="block text-[11px] font-bold uppercase tracking-[0.15em] text-white/30 mb-2">
+                                        <label htmlFor="ask-question" className="block text-[11px] font-bold uppercase tracking-[0.15em] text-white mb-2">
                                             Your Question <span className="text-primary">*</span>
                                         </label>
                                         <textarea
                                             id="ask-question"
                                             required
                                             rows={5}
-                                            className="w-full border-0 border-b-2 border-white/10 bg-transparent py-3 text-sm text-white placeholder-white/20 focus:border-primary focus:ring-0 transition-colors resize-none"
+                                            className="w-full border-0 border-b-2 border-white/20 bg-transparent py-3 text-sm text-white placeholder-white/50 focus:border-primary focus:ring-0 transition-colors resize-none"
                                             placeholder="What actually makes monitoring systems work? Can Bred explain something confusing?"
                                         ></textarea>
                                     </div>
 
                                     <button type="submit" className="w-full py-4 text-sm font-bold uppercase tracking-wider text-black bg-primary hover:bg-primary-dark transition-all duration-300 shadow-lg shadow-primary/20 hover:shadow-xl group flex items-center justify-center gap-2">
-                                        Band In
-                                        <span className="material-symbols-outlined text-lg group-hover:translate-x-1 transition-transform">arrow_forward</span>
+                                        Send
+                                        <span className="material-symbols-outlined text-lg group-hover:translate-x-1 transition-transform">send</span>
                                     </button>
                                 </form>
                             )}
