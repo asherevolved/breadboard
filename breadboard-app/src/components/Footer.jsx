@@ -92,9 +92,24 @@ export default function Footer() {
                 </div>
 
                 {/* Bottom */}
-                <div className="border-t border-white/5 pt-8 flex flex-col md:flex-row justify-between items-center">
+                <div className="border-t border-white/5 pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
                     <p className="text-xs text-white tracking-wider">© {year} Breadboard Consulting Pvt Ltd. All rights reserved.</p>
-                    <div className="flex gap-8 mt-4 md:mt-0">
+                    <a
+                        href="https://deosoriginals.com"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        style={{ fontSize: '13px', letterSpacing: '0.04em' }}
+                        className="text-white/60 hover:text-primary transition-colors duration-300"
+                    >
+                        Made by{' '}
+                        <span
+                            style={{ fontFamily: "'Cinzel', serif", fontWeight: 600, letterSpacing: '0.06em' }}
+                            className="text-white hover:text-primary transition-colors duration-300"
+                        >
+                            Deos Originals
+                        </span>
+                    </a>
+                    <div className="flex gap-8">
                         <a href="#" className="text-xs text-white hover:text-white/50 transition-colors tracking-wider">Privacy Policy</a>
                         <a href="#" className="text-xs text-white hover:text-white/50 transition-colors tracking-wider">Terms of Service</a>
                     </div>
