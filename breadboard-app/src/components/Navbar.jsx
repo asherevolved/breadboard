@@ -35,11 +35,11 @@ export default function Navbar() {
                 <div className="flex justify-between h-20 items-center">
                     {/* Logo */}
                     <Link to="/" className="flex items-center group" aria-label="Breadboard Consulting Home">
-                        <div className="relative flex items-center">
-                            <span className={`border-l-[3px] border-b-[3px] border-primary h-8 w-3 mr-0.5 relative top-[2px] inline-block transition-all duration-300 ${!scrolled ? 'border-primary' : 'border-primary'}`}></span>
-                            <span className={`font-extrabold text-xl tracking-tight lowercase select-none transition-colors duration-300 ${scrolled ? 'text-black' : 'text-white'}`}>breadboard</span>
-                            <span className={`border-r-[3px] border-t-[3px] border-primary h-8 w-3 ml-0.5 relative bottom-[2px] inline-block transition-all duration-300`}></span>
-                        </div>
+                        <img
+                            src="/images/1-removebg-preview - Copy.png"
+                            alt="Breadboard Consulting Logo"
+                            className={`h-16 w-auto object-contain transition-all duration-300 ${!scrolled ? 'brightness-0 invert' : ''}`}
+                        />
                     </Link>
 
                     {/* Desktop Nav */}
