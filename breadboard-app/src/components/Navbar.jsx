@@ -36,9 +36,9 @@ export default function Navbar() {
                     {/* Logo */}
                     <Link to="/" className="flex items-center group" aria-label="Breadboard Consulting Home">
                         <img
-                            src="/images/1-removebg-preview - Copy.png"
+                            src="/images/nav-logo.png"
                             alt="Breadboard Consulting Logo"
-                            className={`h-16 w-auto object-contain transition-all duration-300 ${!scrolled ? 'brightness-0 invert' : ''}`}
+                            className={`h-20 w-auto object-contain transition-all duration-300 ${!scrolled ? 'brightness-0 invert' : ''}`}
                         />
                     </Link>
 
