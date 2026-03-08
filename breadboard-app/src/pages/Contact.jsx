@@ -88,19 +88,6 @@ export default function Contact() {
                                         info@breadboard.in
                                     </a>
                                 </div>
-                                <div className="pt-4 border-t border-black/5">
-                                    <h3 className="font-bold text-black text-sm uppercase tracking-widest mb-2">Updates & Media</h3>
-                                    <div className="space-y-2">
-                                        <a href="mailto:info@breadboard.in" className="flex items-center text-black/60 hover:text-primary transition-colors">
-                                            <span className="w-1.5 h-1.5 rounded-full bg-primary/50 mr-2 border border-primary/20"></span>
-                                            Primary: info@breadboard.in
-                                        </a>
-                                        <a href="mailto:meghanakumar57@gmail.com" className="flex items-center text-black/60 hover:text-primary transition-colors">
-                                            <span className="w-1.5 h-1.5 rounded-full bg-primary/50 mr-2 border border-primary/20"></span>
-                                            Updates: meghanakumar57@gmail.com
-                                        </a>
-                                    </div>
-                                </div>
                             </div>
 
                             {/* Social */}

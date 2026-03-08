@@ -199,13 +199,7 @@ export default function Home() {
                                 ))}
                             </div>
 
-                            <Link
-                                to="/services"
-                                className="inline-flex items-center text-sm font-bold text-primary hover:text-primary-dark uppercase tracking-wider group transition-colors"
-                            >
-                                Explore Our Services
-                                <span className="material-symbols-outlined ml-1 text-base group-hover:translate-x-1 transition-transform">arrow_forward</span>
-                            </Link>
+
                         </div>
                     </div>
                 </div>
