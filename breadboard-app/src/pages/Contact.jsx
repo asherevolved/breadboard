@@ -77,12 +77,34 @@ export default function Contact() {
                     <div className={`grid lg:grid-cols-5 gap-16 lg:gap-20 ${formInView ? 'animate-fade-up' : 'opacity-0'}`}>
                         {/* Left */}
                         <div className="lg:col-span-2">
-                            <span className="text-xs font-bold uppercase tracking-[0.2em] text-primary mb-3 block">Get in Touch</span>
                             <div className="section-divider mb-8"></div>
+
+                            {/* Contact Information */}
+                            <div className="mb-10 text-black/60 space-y-6">
+                                <div>
+                                    <h3 className="font-bold text-black text-sm uppercase tracking-widest mb-2">Get in Touch</h3>
+                                    <a href="mailto:info@breadboard.in" className="inline-flex items-center text-primary font-semibold hover:text-primary-dark transition-colors text-lg">
+                                        <span className="material-symbols-outlined mr-2">mail</span>
+                                        info@breadboard.in
+                                    </a>
+                                </div>
+                                <div className="pt-4 border-t border-black/5">
+                                    <h3 className="font-bold text-black text-sm uppercase tracking-widest mb-2">Updates & Media</h3>
+                                    <div className="space-y-2">
+                                        <a href="mailto:info@breadboard.in" className="flex items-center text-black/60 hover:text-primary transition-colors">
+                                            <span className="w-1.5 h-1.5 rounded-full bg-primary/50 mr-2 border border-primary/20"></span>
+                                            Primary: info@breadboard.in
+                                        </a>
+                                        <a href="mailto:meghanakumar57@gmail.com" className="flex items-center text-black/60 hover:text-primary transition-colors">
+                                            <span className="w-1.5 h-1.5 rounded-full bg-primary/50 mr-2 border border-primary/20"></span>
+                                            Updates: meghanakumar57@gmail.com
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
 
                             {/* Social */}
                             <div className="mt-10 pt-8 border-t border-black/5">
-                                <h3 className="text-xs font-bold uppercase tracking-[0.2em] text-black/30 mb-4">Follow Us</h3>
                                 <div className="flex gap-3">
                                     {[
                                         { name: 'LinkedIn', icon: <svg className="h-4 w-4" fill="currentColor" viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"></path></svg> },

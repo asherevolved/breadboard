@@ -280,7 +280,6 @@ export default function BBX() {
                     <div className={`grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-start ${askInView ? 'animate-fade-up' : 'opacity-0'}`}>
                         {/* LEFT — Ask Bred heading + description + Bred illustration */}
                         <div className="lg:sticky lg:top-32">
-                            <span className="text-xs font-bold uppercase tracking-[0.2em] text-primary mb-4 block">Ask Bred</span>
                             <div className="section-divider mb-6"></div>
 
                             <h2 className="text-3xl md:text-5xl font-extrabold text-white tracking-tight mb-6">
@@ -310,7 +309,7 @@ export default function BBX() {
                                 <div>
                                     <p className="text-white/25 text-sm leading-relaxed max-w-xs">
                                         <span className="text-primary font-semibold">"</span>
-                                        Drop your question below. Bred reads everything.
+                                        Drop your question here. Bred reads everything.
                                         <span className="text-primary font-semibold">"</span>
                                     </p>
                                     <div className="mt-3 flex gap-2">

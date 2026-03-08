@@ -127,7 +127,6 @@ export default function Services() {
 
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
                     <div className={`text-center mb-20 ${partnersInView ? 'animate-fade-up' : 'opacity-0'}`}>
-                        <span className="text-xs font-bold uppercase tracking-[0.2em] text-primary mb-4 block">Who We Work With</span>
                         <h2 className="text-3xl md:text-5xl font-extrabold text-white tracking-tight mb-6">
                             Who We Work With
                         </h2>
@@ -222,13 +221,7 @@ function ServiceBlock({ svc, isEven, index }) {
                             ))}
                         </div>
 
-                        <Link
-                            to="/contact"
-                            className="inline-flex items-center mt-10 text-sm font-bold text-primary hover:text-primary-dark uppercase tracking-wider group transition-colors"
-                        >
-                            Discuss This Service
-                            <span className="material-symbols-outlined ml-1 text-base group-hover:translate-x-1 transition-transform">arrow_forward</span>
-                        </Link>
+
                     </div>
                 </div>
             </div>

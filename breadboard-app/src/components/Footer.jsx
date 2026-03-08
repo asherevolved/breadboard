@@ -13,7 +13,7 @@ export default function Footer() {
                     {/* Brand */}
                     <div className="md:col-span-4">
                         <Link to="/" className="inline-flex items-center group mb-8 block">
-                            <img src="/logo.png" alt="Breadboard Consulting Logo" className="h-24 w-auto brightness-0 invert" />
+                            <img src="/logo.png" alt="Breadboard Consulting Logo" className="h-24 w-auto" />
                         </Link>
                         <p className="text-[15px] text-white leading-relaxed max-w-sm mb-8">
                             Strategic advisory for CSR, development, and institutional impact. Designing structured systems that translate intent into measurable action.

@@ -49,7 +49,6 @@ export default function Career() {
             <section ref={valuesRef} className="py-28 md:py-36 bg-white">
                 <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
                     <div className={`text-center mb-16 ${valuesInView ? 'animate-fade-up' : 'opacity-0'}`}>
-                        <span className="text-xs font-bold uppercase tracking-[0.2em] text-primary mb-4 block">Our Values</span>
                         <h2 className="text-3xl md:text-5xl font-extrabold text-black tracking-tight mb-10">
                             What We Stand For
                         </h2>
@@ -89,7 +88,6 @@ export default function Career() {
 
                 <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
                     <div className={`text-center mb-16 ${openingsInView ? 'animate-fade-up' : 'opacity-0'}`}>
-                        <span className="text-xs font-bold uppercase tracking-[0.2em] text-primary mb-4 block">Opportunities</span>
                         <h2 className="text-3xl md:text-5xl font-extrabold text-white tracking-tight mb-6">
                             Job Openings
                         </h2>

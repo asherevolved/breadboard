@@ -110,7 +110,6 @@ export default function Home() {
             <section ref={servRef} id="services" className="py-28 md:py-36 bg-cream">
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                     <div className={`text-center mb-20 ${servInView ? 'animate-fade-up' : 'opacity-0'}`}>
-                        <span className="text-xs font-bold uppercase tracking-[0.2em] text-primary mb-4 block">What We Do</span>
                         <h2 className="text-3xl md:text-5xl font-extrabold text-black tracking-tight mb-6">
                             What We Do
                         </h2>
@@ -172,7 +171,6 @@ export default function Home() {
                     {/* Content side */}
                     <div className={`flex items-center px-8 md:px-16 lg:px-20 py-20 ${gapInView ? 'animate-slide-right' : 'opacity-0'}`}>
                         <div>
-                            <span className="text-xs font-bold uppercase tracking-[0.2em] text-primary mb-4 block">Our Model</span>
                             <h2 className="text-3xl md:text-5xl font-extrabold text-black tracking-tight mb-8">
                                 Why Breadboard
                             </h2>

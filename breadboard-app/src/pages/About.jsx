@@ -67,7 +67,6 @@ export default function About() {
                     {/* Content side */}
                     <div className={`flex items-center px-8 md:px-16 lg:px-20 py-20 ${whoInView ? 'animate-slide-right' : 'opacity-0'}`}>
                         <div>
-                            <span className="text-xs font-bold uppercase tracking-[0.2em] text-primary mb-3 block">Who We Are</span>
                             <h2 className="text-3xl md:text-4xl font-extrabold text-black tracking-tight mb-8">
                                 Who We Are
                             </h2>
@@ -91,7 +90,6 @@ export default function About() {
                 ></div>
                 <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
                     <div className="text-center">
-                        <span className="text-xs font-bold uppercase tracking-[0.2em] text-primary mb-3 block">What We Do</span>
                         <h2 className="text-3xl md:text-4xl font-extrabold text-white tracking-tight mb-6">
                             What We Do
                         </h2>
@@ -115,7 +113,6 @@ export default function About() {
             <section ref={approachRef} className="py-28 md:py-36 bg-cream">
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                     <div className={`text-center mb-20 ${approachInView ? 'animate-fade-up' : 'opacity-0'}`}>
-                        <span className="text-xs font-bold uppercase tracking-[0.2em] text-primary mb-4 block">Our Approach</span>
                         <h2 className="text-3xl md:text-5xl font-extrabold text-black tracking-tight mb-6">
                             Our Approach
                         </h2>
