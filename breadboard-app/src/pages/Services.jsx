@@ -221,7 +221,13 @@ function ServiceBlock({ svc, isEven, index }) {
                             ))}
                         </div>
 
-
+                        <Link
+                            to="/contact"
+                            className="inline-flex items-center mt-10 text-sm font-bold text-primary hover:text-primary-dark uppercase tracking-wider group transition-colors"
+                        >
+                            Enquire Now
+                            <span className="material-symbols-outlined ml-1 text-base group-hover:translate-x-1 transition-transform">arrow_forward</span>
+                        </Link>
                     </div>
                 </div>
             </div>
