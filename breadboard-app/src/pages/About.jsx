@@ -72,7 +72,7 @@ export default function About() {
                                 Who We Are
                             </h2>
                             <p className="text-black/50 leading-[1.8] mb-6 text-[15px]">
-                                Breadboard Consulting Pvt Ltd is a professional advisory and consulting firm working at the intersection of corporate responsibility, development programming, and institutional strengthening. We partner with corporates, development organizations, and public sector stakeholders to design high-impact programs, improve delivery systems, and support evidence-based decision-making.
+                                Breadboard Consulting is a professional advisory and consulting firm working at the intersection of corporate responsibility, development programming, and institutional strengthening. We partner with corporates, development organizations, and public sector stakeholders to design high-impact programs, improve delivery systems, and support evidence-based decision-making.
                             </p>
                             <p className="text-black/50 leading-[1.8] mb-8 text-[15px]">
                                 Our work is focused on building scalable, implementation-ready solutions that balance strategic intent with on-ground realities. Breadboard brings together program design expertise, operational understanding, and analytical rigor to support organizations across the full project lifecycle.

@@ -50,29 +50,31 @@ export default function Career() {
                 <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
                     <div className={`text-center mb-16 ${valuesInView ? 'animate-fade-up' : 'opacity-0'}`}>
                         <span className="text-xs font-bold uppercase tracking-[0.2em] text-primary mb-4 block">Our Values</span>
-                        <h2 className="text-3xl md:text-5xl font-extrabold text-black tracking-tight mb-6">
+                        <h2 className="text-3xl md:text-5xl font-extrabold text-black tracking-tight mb-10">
                             What We Stand For
                         </h2>
+
+                        {/* Icon grid — before the closing line */}
+                        <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-10">
+                            {[
+                                { icon: 'psychology', label: 'Structural Thinking' },
+                                { icon: 'precision_manufacturing', label: 'Execution Discipline' },
+                                { icon: 'analytics', label: 'Analytical Rigor' },
+                                { icon: 'verified', label: 'Institutional Integrity' },
+                            ].map((v) => (
+                                <div key={v.label} className="group bg-cream border border-black/5 p-8 text-center hover:shadow-2xl hover:shadow-primary/5 transition-all duration-500 hover:-translate-y-1 relative overflow-hidden">
+                                    <div className="absolute top-0 left-0 w-full h-[3px] bg-primary scale-x-0 group-hover:scale-x-100 transition-transform duration-700 origin-left"></div>
+                                    <div className="w-14 h-14 mx-auto mb-5 bg-primary/10 flex items-center justify-center text-primary group-hover:bg-primary group-hover:text-black transition-colors duration-300">
+                                        <span className="material-symbols-outlined text-2xl">{v.icon}</span>
+                                    </div>
+                                    <span className="text-xs font-bold text-black/60 uppercase tracking-wider">{v.label}</span>
+                                </div>
+                            ))}
+                        </div>
+
                         <p className="max-w-3xl mx-auto text-lg text-black/40 leading-relaxed">
                             If these values resonate with you, we invite you to apply for the open roles that align with your expertise and interests.
                         </p>
-                    </div>
-
-                    <div className={`grid grid-cols-2 md:grid-cols-4 gap-4 ${valuesInView ? 'animate-fade-up delay-200' : 'opacity-0'}`}>
-                        {[
-                            { icon: 'psychology', label: 'Structural Thinking' },
-                            { icon: 'precision_manufacturing', label: 'Execution Discipline' },
-                            { icon: 'analytics', label: 'Analytical Rigor' },
-                            { icon: 'verified', label: 'Institutional Integrity' },
-                        ].map((v) => (
-                            <div key={v.label} className="group bg-cream border border-black/5 p-8 text-center hover:shadow-2xl hover:shadow-primary/5 transition-all duration-500 hover:-translate-y-1 relative overflow-hidden">
-                                <div className="absolute top-0 left-0 w-full h-[3px] bg-primary scale-x-0 group-hover:scale-x-100 transition-transform duration-700 origin-left"></div>
-                                <div className="w-14 h-14 mx-auto mb-5 bg-primary/10 flex items-center justify-center text-primary group-hover:bg-primary group-hover:text-black transition-colors duration-300">
-                                    <span className="material-symbols-outlined text-2xl">{v.icon}</span>
-                                </div>
-                                <span className="text-xs font-bold text-black/60 uppercase tracking-wider">{v.label}</span>
-                            </div>
-                        ))}
                     </div>
                 </div>
             </section>
@@ -106,13 +108,10 @@ export default function Career() {
                                 We're not actively hiring at the moment, but we're always looking for exceptional talent. Check back soon or connect with us on LinkedIn.
                             </p>
                             <div className="flex flex-col sm:flex-row justify-center gap-4">
-                                <a href="#" className="inline-flex items-center justify-center px-8 py-4 text-sm font-bold uppercase tracking-wider text-black bg-primary hover:bg-primary-dark transition-all duration-300 shadow-lg shadow-primary/20 group">
+                                <a href="https://www.linkedin.com/company/breadboard-india/" target="_blank" rel="noopener noreferrer" className="inline-flex items-center justify-center px-8 py-4 text-sm font-bold uppercase tracking-wider text-black bg-primary hover:bg-primary-dark transition-all duration-300 shadow-lg shadow-primary/20 group">
                                     Follow on LinkedIn
                                     <span className="material-symbols-outlined ml-2 text-lg group-hover:translate-x-1 transition-transform">arrow_forward</span>
                                 </a>
-                                <Link to="/contact" className="inline-flex items-center justify-center px-8 py-4 text-sm font-bold uppercase tracking-wider text-white/70 border border-white/10 hover:border-primary/30 hover:text-primary transition-all duration-300">
-                                    Get in Touch
-                                </Link>
                             </div>
                         </div>
                     </div>

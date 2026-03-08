@@ -206,18 +206,11 @@ function ServiceBlock({ svc, isEven, index }) {
                 <div className={`relative overflow-hidden img-zoom ${isEven ? 'lg:order-1' : 'lg:order-2'} ${inView ? (isEven ? 'animate-slide-left' : 'animate-slide-right') : 'opacity-0'}`}>
                     <img src={svc.img} alt={svc.title} className="w-full h-full object-cover min-h-[350px]" />
                     <div className={`absolute inset-0 bg-gradient-to-${isEven ? 'r' : 'l'} from-transparent to-black/10`}></div>
-                    {/* Number overlay */}
-                    <div className="absolute bottom-6 left-8 text-8xl font-extrabold text-white/10 select-none">
-                        {String(index + 1).padStart(2, '0')}
-                    </div>
                 </div>
 
                 {/* Content */}
                 <div className={`flex items-center ${isEven ? 'lg:order-2' : 'lg:order-1'} ${inView ? (isEven ? 'animate-slide-right' : 'animate-slide-left') : 'opacity-0'}`}>
                     <div className="px-8 md:px-16 lg:px-20 py-16 lg:py-20 w-full">
-                        <div className="flex items-center gap-3 mb-2">
-                            <span className="text-xs font-bold uppercase tracking-[0.2em] text-primary">Service {String(index + 1).padStart(2, '0')}</span>
-                        </div>
                         <h2 className="text-2xl md:text-4xl font-extrabold text-black tracking-tight mb-6">{svc.title}</h2>
                         <p className="text-black/40 leading-relaxed mb-8 text-[15px]">{svc.desc}</p>
 

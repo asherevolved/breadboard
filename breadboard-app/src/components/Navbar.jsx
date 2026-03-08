@@ -22,7 +22,6 @@ export default function Navbar() {
         { to: '/', label: 'Home' },
         { to: '/about', label: 'About Us' },
         { to: '/services', label: 'Services' },
-        { to: '/contact', label: 'Contact' },
         { to: '/career', label: 'Career' },
         { to: '/bbx', label: 'BBX' },
     ];

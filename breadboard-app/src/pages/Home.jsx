@@ -59,9 +59,7 @@ export default function Home() {
                         </div>
 
                         <h1 className={`text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-extrabold text-white leading-[1.05] tracking-tight mb-8 ${heroInView ? 'animate-fade-up delay-200' : 'opacity-0'}`}>
-                            Strategic Advisory for{' '}
-                            <span className="text-gradient">CSR, Development</span>{' '}
-                            and Institutional Impact
+                            Strategic Advisory for CSR, Development and Institutional Impact
                         </h1>
 
                         <p className={`text-lg md:text-xl text-white/50 max-w-xl leading-relaxed mb-12 ${heroInView ? 'animate-fade-up delay-400' : 'opacity-0'}`}>
@@ -157,9 +155,71 @@ export default function Home() {
             </section>
 
             {/* ═══════════════════════════════════════
-          THE BREADBOARD ALIGNMENT MODEL
+          WHY BREADBOARD — with image
           ═══════════════════════════════════════ */}
-            <section ref={alignRef} className="py-24 md:py-32 bg-[#080a0f] relative overflow-hidden">
+            <section ref={gapRef} className="py-0 bg-white">
+                <div className="grid grid-cols-1 lg:grid-cols-2 min-h-[600px]">
+                    {/* Image side */}
+                    <div className={`relative overflow-hidden img-zoom ${gapInView ? 'animate-slide-left' : 'opacity-0'}`}>
+                        <img
+                            src="/images/strategy.png"
+                            alt="Strategy building"
+                            className="w-full h-full object-cover min-h-[400px]"
+                        />
+                        <div className="absolute inset-0 bg-gradient-to-r from-transparent to-white/20"></div>
+                    </div>
+
+                    {/* Content side */}
+                    <div className={`flex items-center px-8 md:px-16 lg:px-20 py-20 ${gapInView ? 'animate-slide-right' : 'opacity-0'}`}>
+                        <div>
+                            <span className="text-xs font-bold uppercase tracking-[0.2em] text-primary mb-4 block">Our Model</span>
+                            <h2 className="text-3xl md:text-5xl font-extrabold text-black tracking-tight mb-8">
+                                Why Breadboard
+                            </h2>
+                            <p className="text-lg text-black/40 leading-relaxed mb-10">
+                                The core gap where impact weakens lies in how institutions operate: strategy is designed in isolation, systems remain underbuilt, and execution is left to adjust in the field. The result is fragmentation and diluted outcomes. Our model works to close that gap.
+                            </p>
+
+                            {/* Flow diagram */}
+                            <div className="flex items-center gap-3 md:gap-4 mb-10">
+                                {[
+                                    { label: 'Strategy', icon: 'architecture' },
+                                    { label: 'Systems', icon: 'settings_suggest' },
+                                    { label: 'Execution', icon: 'rocket_launch' },
+                                ].map((item, i) => (
+                                    <div key={item.label} className="flex items-center gap-3 md:gap-4">
+                                        <div className="flex flex-col items-center gap-2">
+                                            <div className="w-14 h-14 md:w-16 md:h-16 bg-primary/10 flex items-center justify-center text-primary">
+                                                <span className="material-symbols-outlined text-2xl">{item.icon}</span>
+                                            </div>
+                                            <span className="text-[10px] font-bold uppercase tracking-wider text-black/50">{item.label}</span>
+                                        </div>
+                                        {i < 2 && (
+                                            <span className="material-symbols-outlined text-primary/30 text-xl mb-5">arrow_forward</span>
+                                        )}
+                                    </div>
+                                ))}
+                            </div>
+
+                            <Link
+                                to="/services"
+                                className="inline-flex items-center text-sm font-bold text-primary hover:text-primary-dark uppercase tracking-wider group transition-colors"
+                            >
+                                Explore Our Services
+                                <span className="material-symbols-outlined ml-1 text-base group-hover:translate-x-1 transition-transform">arrow_forward</span>
+                            </Link>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            {/* ═══════════════════════════════════════
+          ALIGNMENT MODEL — Connected to Why Breadboard
+          ═══════════════════════════════════════ */}
+            {/* Smooth white-to-dark gradient connector */}
+            <div className="h-20 bg-gradient-to-b from-white to-[#080a0f]"></div>
+
+            <section ref={alignRef} className="py-16 md:py-24 bg-[#080a0f] relative overflow-hidden">
                 {/* Background grid pattern */}
                 <div className="absolute inset-0 pointer-events-none opacity-[0.025]"
                     style={{ backgroundImage: 'linear-gradient(rgba(255,189,89,0.3) 1px, transparent 1px), linear-gradient(90deg, rgba(255,189,89,0.3) 1px, transparent 1px)', backgroundSize: '60px 60px' }}>
@@ -171,26 +231,10 @@ export default function Home() {
 
                 <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
 
-                    {/* ── TITLE ── */}
-                    <div className={`text-center mb-16 ${alignInView ? 'animate-fade-up' : 'opacity-0'}`}>
-                        <p className="text-[11px] font-bold uppercase tracking-[0.3em] text-primary/60 mb-4">Our Framework</p>
-                        <h2 className="text-3xl md:text-5xl font-extrabold text-white tracking-tight mb-4 leading-tight">
-                            The Breadboard{' '}
-                            <span className="text-gradient">Alignment Model</span>
-                        </h2>
-                        <p className="text-base text-white/35 max-w-lg mx-auto leading-relaxed">
-                            Aligning{' '}
-                            <span className="text-primary/70 font-semibold">Strategic Intent</span>,{' '}
-                            <span className="text-primary/70 font-semibold">Structured Systems</span>, and{' '}
-                            <span className="text-primary/70 font-semibold">Ground Execution</span>
-                        </p>
-                        <div className="flex justify-center mt-5">
-                            <div className="w-16 h-px bg-gradient-to-r from-transparent via-primary/50 to-transparent"></div>
-                        </div>
-                    </div>
+
 
                     {/* ══════════════ DIAGRAM ══════════════ */}
-                    <div className="relative">
+                    <div className="">
 
                         {/* ────────────────────────────────────
                             TIER 1 — STRATEGIC INTENT
@@ -247,16 +291,15 @@ export default function Home() {
                         <div className={`relative ${alignInView ? 'animate-fade-up delay-550' : 'opacity-0'}`}>
 
                             {/* ← LEFT: Advisory + Execution */}
-                            <div className={`hidden lg:flex absolute -left-[185px] top-1/2 -translate-y-1/2 items-center gap-0 ${alignInView ? 'animate-slide-from-left delay-700' : 'opacity-0'}`}>
-                                <div className="flex flex-col items-center p-3.5 bg-[#0e1118] border border-white/[0.07] rounded-lg w-32 text-center"
+                            <div className={`hidden lg:flex absolute -left-[160px] top-1/2 -translate-y-1/2 items-center gap-0 ${alignInView ? 'animate-slide-from-left delay-700' : 'opacity-0'}`}>
+                                <div className="flex flex-col items-center p-3 bg-[#0e1118] border border-white/[0.07] rounded-lg w-28 text-center"
                                     style={{ boxShadow: '0 0 15px rgba(0,0,0,0.5)' }}>
-                                    <p className="text-[11px] font-bold text-white/70 leading-snug">Advisory</p>
-                                    <p className="text-[20px] leading-none text-primary/30 my-1">+</p>
-                                    <p className="text-[11px] font-bold text-white/70 leading-snug">Execution</p>
+                                    <p className="text-[10px] font-bold text-white/70 leading-snug">Advisory</p>
+                                    <p className="text-[18px] leading-none text-primary/30 my-0.5">+</p>
+                                    <p className="text-[10px] font-bold text-white/70 leading-snug">Execution</p>
                                 </div>
-                                {/* Animated horizontal arrow → */}
                                 <div className="flex items-center ml-1">
-                                    <div className="w-12 h-px bg-gradient-to-r from-primary/20 to-primary/60"></div>
+                                    <div className="w-8 h-px bg-gradient-to-r from-primary/20 to-primary/60"></div>
                                     <svg className="animate-arrow-pulse" style={{ animationDelay: '0.4s' }} width="10" height="10" viewBox="0 0 10 10" fill="none">
                                         <path d="M10 5L0 0V10L10 5Z" fill="rgba(255,189,89,0.7)" />
                                     </svg>
@@ -264,19 +307,18 @@ export default function Home() {
                             </div>
 
                             {/* → RIGHT: Strategy + Implementation */}
-                            <div className={`hidden lg:flex absolute -right-[185px] top-1/2 -translate-y-1/2 items-center gap-0 ${alignInView ? 'animate-slide-from-right delay-700' : 'opacity-0'}`}>
-                                {/* Animated horizontal arrow ← */}
+                            <div className={`hidden lg:flex absolute -right-[160px] top-1/2 -translate-y-1/2 items-center gap-0 ${alignInView ? 'animate-slide-from-right delay-700' : 'opacity-0'}`}>
                                 <div className="flex items-center mr-1">
                                     <svg className="animate-arrow-pulse" style={{ animationDelay: '0.4s' }} width="10" height="10" viewBox="0 0 10 10" fill="none">
                                         <path d="M0 5L10 0V10L0 5Z" fill="rgba(255,189,89,0.7)" />
                                     </svg>
-                                    <div className="w-12 h-px bg-gradient-to-l from-primary/20 to-primary/60"></div>
+                                    <div className="w-8 h-px bg-gradient-to-l from-primary/20 to-primary/60"></div>
                                 </div>
-                                <div className="flex flex-col items-center p-3.5 bg-[#0e1118] border border-white/[0.07] rounded-lg w-32 text-center"
+                                <div className="flex flex-col items-center p-3 bg-[#0e1118] border border-white/[0.07] rounded-lg w-28 text-center"
                                     style={{ boxShadow: '0 0 15px rgba(0,0,0,0.5)' }}>
-                                    <p className="text-[11px] font-bold text-white/70 leading-snug">Strategy</p>
-                                    <p className="text-[20px] leading-none text-primary/30 my-1">+</p>
-                                    <p className="text-[11px] font-bold text-white/70 leading-snug">Implementation</p>
+                                    <p className="text-[10px] font-bold text-white/70 leading-snug">Strategy</p>
+                                    <p className="text-[18px] leading-none text-primary/30 my-0.5">+</p>
+                                    <p className="text-[10px] font-bold text-white/70 leading-snug">Implementation</p>
                                 </div>
                             </div>
 
@@ -402,65 +444,6 @@ export default function Home() {
                                     <span className="text-[11px] font-semibold text-white/55 group-hover:text-white/80 whitespace-nowrap transition-colors">{item.label}</span>
                                 </div>
                             ))}
-                        </div>
-                    </div>
-                </div>
-            </section>
-
-            {/* ═══════════════════════════════════════
-          WHY BREADBOARD — with image
-          ═══════════════════════════════════════ */}
-            <section ref={gapRef} className="py-0 bg-white">
-                <div className="grid grid-cols-1 lg:grid-cols-2 min-h-[600px]">
-                    {/* Image side */}
-                    <div className={`relative overflow-hidden img-zoom ${gapInView ? 'animate-slide-left' : 'opacity-0'}`}>
-                        <img
-                            src="/images/strategy.png"
-                            alt="Strategy building"
-                            className="w-full h-full object-cover min-h-[400px]"
-                        />
-                        <div className="absolute inset-0 bg-gradient-to-r from-transparent to-white/20"></div>
-                    </div>
-
-                    {/* Content side */}
-                    <div className={`flex items-center px-8 md:px-16 lg:px-20 py-20 ${gapInView ? 'animate-slide-right' : 'opacity-0'}`}>
-                        <div>
-                            <span className="text-xs font-bold uppercase tracking-[0.2em] text-primary mb-4 block">Our Model</span>
-                            <h2 className="text-3xl md:text-5xl font-extrabold text-black tracking-tight mb-8">
-                                Why Breadboard
-                            </h2>
-                            <p className="text-lg text-black/40 leading-relaxed mb-10">
-                                The core gap where impact weakens lies in how institutions operate: strategy is designed in isolation, systems remain underbuilt, and execution is left to adjust in the field. The result is fragmentation and diluted outcomes. Our model works to close that gap.
-                            </p>
-
-                            {/* Flow diagram */}
-                            <div className="flex items-center gap-3 md:gap-4 mb-10">
-                                {[
-                                    { label: 'Strategy', icon: 'architecture' },
-                                    { label: 'Systems', icon: 'settings_suggest' },
-                                    { label: 'Execution', icon: 'rocket_launch' },
-                                ].map((item, i) => (
-                                    <div key={item.label} className="flex items-center gap-3 md:gap-4">
-                                        <div className="flex flex-col items-center gap-2">
-                                            <div className="w-14 h-14 md:w-16 md:h-16 bg-primary/10 flex items-center justify-center text-primary">
-                                                <span className="material-symbols-outlined text-2xl">{item.icon}</span>
-                                            </div>
-                                            <span className="text-[10px] font-bold uppercase tracking-wider text-black/50">{item.label}</span>
-                                        </div>
-                                        {i < 2 && (
-                                            <span className="material-symbols-outlined text-primary/30 text-xl mb-5">arrow_forward</span>
-                                        )}
-                                    </div>
-                                ))}
-                            </div>
-
-                            <Link
-                                to="/services"
-                                className="inline-flex items-center text-sm font-bold text-primary hover:text-primary-dark uppercase tracking-wider group transition-colors"
-                            >
-                                Explore Our Services
-                                <span className="material-symbols-outlined ml-1 text-base group-hover:translate-x-1 transition-transform">arrow_forward</span>
-                            </Link>
                         </div>
                     </div>
                 </div>

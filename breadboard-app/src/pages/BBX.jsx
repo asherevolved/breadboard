@@ -46,7 +46,7 @@ const bbxSections = [
     {
         icon: 'explore',
         title: "Bred's Rabbit Holes",
-        desc: 'Surprising facts, research nuggets, sector jokes, strange statistics — things Bred found while procrastinating.',
+        desc: 'Interesting finds, unusual insights, and things Bred stumbled upon while procrastinating.',
         image: '/images/bred-coffee-nobg-removebg-preview.png',
         color: '#ffbd59',
         featured: true,
@@ -66,6 +66,27 @@ const socials = [
     { name: 'Facebook', icon: <svg className="h-4 w-4" fill="currentColor" viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"></path></svg> },
     { name: 'LinkedIn', icon: <svg className="h-4 w-4" fill="currentColor" viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"></path></svg> },
     { name: 'YouTube', icon: <svg className="h-4 w-4" fill="currentColor" viewBox="0 0 24 24"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"></path></svg> },
+];
+
+const institutionTypes = [
+    'Corporate / CSR Foundation',
+    'Not-for-Profit / Development Organisation',
+    'Government / Public Institution',
+    'Private Sector Enterprise',
+    'Mission-Driven / Impact Venture',
+    'Multilateral / Philanthropic Institution',
+    'Other',
+];
+
+const engagementTypes = [
+    'CSR & Corporate Advisory',
+    'Program Design & Scale-up',
+    'Monitoring, Evaluation & Impact Systems',
+    'Research & Policy Advisory',
+    'Marketing & Digital Strategy',
+    'Institutional Capacity Strengthening',
+    'Partnership / Collaboration',
+    'Exploratory Discussion',
 ];
 
 export default function BBX() {
@@ -160,16 +181,22 @@ export default function BBX() {
                                 <p>
                                     If you're also into interesting stuff, slightly obsessive curiosity, and top-tier sector jokes, we'll get along.
                                 </p>
+                                <p>
+                                    You can also find me wandering around our social media channels.
+                                    <br />
+                                    <span className="text-white/60">Follow us and come say hi.</span>
+                                </p>
                             </div>
 
                             {/* Social media icons */}
                             <div className="mt-8 pt-6 border-t border-white/5">
-                                <p className="text-sm text-white/30 mb-4">Social media !!</p>
                                 <div className="flex gap-3">
                                     {socials.map(({ name, icon }) => (
                                         <a
                                             key={name}
-                                            href="#"
+                                            href={name === 'Instagram' ? 'https://www.instagram.com/breadboard.in?igsh=cG9remlrMXpvMzQ3' : name === 'X' ? 'https://x.com/breadboardindia?s=21' : name === 'YouTube' ? 'https://www.youtube.com/@BreadboardConsulting' : name === 'LinkedIn' ? 'https://www.linkedin.com/company/breadboard-india/' : name === 'Facebook' ? 'https://www.facebook.com/profile.php?id=61584892956215' : '#'}
+                                            target="_blank"
+                                            rel="noopener noreferrer"
                                             className="w-10 h-10 bg-white/5 border border-white/10 hover:bg-primary hover:text-black hover:border-primary flex items-center justify-center transition-all duration-300 text-white/40 rounded-lg"
                                             aria-label={name}
                                         >
@@ -206,9 +233,9 @@ export default function BBX() {
                     {/* Divider line at top */}
                     <div className={`w-full h-px bg-gradient-to-r from-transparent via-black/10 to-transparent mb-16 ${sectionsInView ? 'animate-fade-in' : 'opacity-0'}`}></div>
 
-                    {/* Top row — 4 cards with image thumbnails */}
-                    <div className={`grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5 mb-5 ${sectionsInView ? 'animate-fade-up delay-100' : 'opacity-0'}`}>
-                        {bbxSections.slice(0, 4).map((section, i) => (
+                    {/* Uniform grid for all 6 cards */}
+                    <div className={`grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 mb-5 ${sectionsInView ? 'animate-fade-up delay-100' : 'opacity-0'}`}>
+                        {bbxSections.map((section, i) => (
                             <div
                                 key={section.title}
                                 className="group bg-cream border border-black/5 hover:shadow-2xl hover:shadow-primary/8 transition-all duration-500 hover:-translate-y-1.5 relative overflow-hidden cursor-pointer"
@@ -218,103 +245,17 @@ export default function BBX() {
                                 {/* Top gold bar on hover */}
                                 <div className="absolute top-0 left-0 w-full h-[3px] bg-primary scale-x-0 group-hover:scale-x-100 transition-transform duration-700 origin-left"></div>
 
-                                {/* Image thumbnail area */}
-                                <div className="relative w-full aspect-[4/3] bg-gradient-to-br from-cream via-white to-primary/5 flex items-center justify-center overflow-hidden border-b border-black/5">
-                                    <img
-                                        src={section.image}
-                                        alt={section.title}
-                                        className="h-[85%] w-auto object-contain drop-shadow-lg group-hover:scale-110 transition-transform duration-500"
-                                    />
-                                    {/* Subtle overlay number */}
-                                    <div className="absolute top-3 right-4 text-4xl font-extrabold text-black/[0.04] select-none">
-                                        {String(i + 1).padStart(2, '0')}
+                                {/* Card content */}
+                                <div className="p-10 flex flex-col items-center text-center">
+                                    <div className="w-20 h-20 mb-6 bg-primary/10 flex items-center justify-center text-primary group-hover:bg-primary group-hover:text-black transition-colors duration-300 rounded-2xl">
+                                        <span className="material-symbols-outlined text-4xl">{section.icon}</span>
                                     </div>
-                                </div>
-
-                                {/* Card content below image */}
-                                <div className="p-6">
-                                    <div className="flex items-center gap-3 mb-3">
-                                        <div className="w-9 h-9 bg-primary/10 flex items-center justify-center text-primary group-hover:bg-primary group-hover:text-black transition-colors duration-300 rounded-md">
-                                            <span className="material-symbols-outlined text-lg">{section.icon}</span>
-                                        </div>
-                                        <h3 className="text-base font-bold text-black group-hover:text-primary transition-colors">{section.title}</h3>
-                                    </div>
-
-                                    <p className="text-sm text-black/35 leading-relaxed mb-4">{section.desc}</p>
+                                    <h3 className="text-xl font-bold text-black group-hover:text-primary transition-colors mb-6">{section.title}</h3>
 
                                     <span className="inline-flex items-center gap-1.5 text-xs font-bold uppercase tracking-wider text-primary/60">
                                         <span className="w-1.5 h-1.5 bg-primary/40 rounded-full animate-pulse"></span>
                                         Coming Soon
                                     </span>
-                                </div>
-                            </div>
-                        ))}
-                    </div>
-
-                    {/* Bottom row — 2 wider cards with image thumbnails */}
-                    <div className={`grid grid-cols-1 md:grid-cols-2 gap-5 ${sectionsInView ? 'animate-fade-up delay-300' : 'opacity-0'}`}>
-                        {bbxSections.slice(4).map((section, i) => (
-                            <div
-                                key={section.title}
-                                className={`group relative overflow-hidden cursor-pointer transition-all duration-500 hover:-translate-y-1.5 ${section.featured
-                                    ? 'bg-black text-white border border-white/10 hover:shadow-2xl hover:shadow-primary/10'
-                                    : 'bg-cream border border-black/5 hover:shadow-2xl hover:shadow-primary/8'
-                                    }`}
-                            >
-                                {/* Top gold bar on hover */}
-                                <div className="absolute top-0 left-0 w-full h-[3px] bg-primary scale-x-0 group-hover:scale-x-100 transition-transform duration-700 origin-left"></div>
-
-                                {/* Layout: Image area on left, content on right */}
-                                <div className="flex flex-col sm:flex-row">
-                                    {/* Image thumbnail */}
-                                    <div className={`sm:w-2/5 aspect-square sm:aspect-auto flex items-center justify-center p-6 ${section.featured
-                                        ? 'bg-gradient-to-br from-primary/5 via-transparent to-primary/10'
-                                        : 'bg-gradient-to-br from-cream via-white to-primary/5 border-b sm:border-b-0 sm:border-r border-black/5'
-                                        }`}>
-                                        <img
-                                            src={section.image}
-                                            alt={section.title}
-                                            className="h-36 sm:h-44 w-auto object-contain drop-shadow-lg group-hover:scale-110 transition-transform duration-500"
-                                        />
-                                    </div>
-
-                                    {/* Content */}
-                                    <div className="flex-1 p-7 sm:p-8">
-                                        {/* Background number */}
-                                        <div className={`absolute top-4 right-6 text-5xl font-extrabold select-none ${section.featured ? 'text-white/[0.04]' : 'text-black/[0.03]'}`}>
-                                            {String(i + 5).padStart(2, '0')}
-                                        </div>
-
-                                        <div className={`w-11 h-11 flex items-center justify-center mb-4 transition-colors duration-300 rounded-md ${section.featured
-                                            ? 'bg-primary/15 text-primary group-hover:bg-primary group-hover:text-black'
-                                            : 'bg-primary/10 text-primary group-hover:bg-primary group-hover:text-black'
-                                            }`}>
-                                            <span className="material-symbols-outlined text-xl">{section.icon}</span>
-                                        </div>
-
-                                        <h3 className={`text-xl font-bold mb-3 group-hover:text-primary transition-colors ${section.featured ? 'text-white' : 'text-black'}`}>
-                                            {section.title}
-                                        </h3>
-
-                                        <p className={`text-sm leading-relaxed mb-4 ${section.featured ? 'text-white/35' : 'text-black/35'}`}>
-                                            {section.desc}
-                                        </p>
-
-                                        {section.featured && (
-                                            <div className="flex flex-wrap gap-2 mb-4">
-                                                {['Surprising facts', 'Research nuggets', 'Sector jokes', 'Strange stats'].map(tag => (
-                                                    <span key={tag} className="text-[10px] uppercase tracking-wider px-2.5 py-1 bg-primary/10 text-primary/70 font-semibold rounded-sm">
-                                                        {tag}
-                                                    </span>
-                                                ))}
-                                            </div>
-                                        )}
-
-                                        <span className={`inline-flex items-center gap-1.5 text-xs font-bold uppercase tracking-wider ${section.featured ? 'text-primary/60' : 'text-primary/60'}`}>
-                                            <span className="w-1.5 h-1.5 bg-primary/40 rounded-full animate-pulse"></span>
-                                            Coming Soon
-                                        </span>
-                                    </div>
                                 </div>
                             </div>
                         ))}
@@ -353,7 +294,7 @@ export default function BBX() {
                                 <p className="text-white/40 text-sm italic">
                                     If it sparks Bred's curiosity, it might turn into a BBX post, a conversation, or a curious little investigation.
                                 </p>
-                                <p className="text-primary/60 text-sm font-semibold">Drop your question below. Bred reads everything.</p>
+
                             </div>
 
                             {/* Bred illustration */}
@@ -369,7 +310,7 @@ export default function BBX() {
                                 <div>
                                     <p className="text-white/25 text-sm leading-relaxed max-w-xs">
                                         <span className="text-primary font-semibold">"</span>
-                                        I'm curious about everything. Give me something fun to investigate.
+                                        Drop your question below. Bred reads everything.
                                         <span className="text-primary font-semibold">"</span>
                                     </p>
                                     <div className="mt-3 flex gap-2">
@@ -400,45 +341,74 @@ export default function BBX() {
                                     {/* Form header */}
                                     <div className="absolute top-0 left-0 w-full h-[3px] bg-gradient-to-r from-primary via-primary-dark to-primary"></div>
 
-                                    <h3 className="text-lg font-bold text-white/80 mb-6">Form</h3>
+                                    {/* Form header removed as per request */}
 
                                     <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
                                         <div>
                                             <label htmlFor="ask-name" className="block text-[11px] font-bold uppercase tracking-[0.15em] text-white/30 mb-2">
                                                 Name <span className="text-primary">*</span>
                                             </label>
-                                            <input type="text" id="ask-name" required className="w-full border-0 border-b-2 border-white/10 bg-transparent py-3 text-sm text-white placeholder-white/20 focus:border-primary focus:ring-0 transition-colors" placeholder="Your name" />
+                                            <input type="text" id="ask-name" required className="w-full border-0 border-b-2 border-white/10 bg-transparent py-3 text-sm text-white placeholder-white/20 focus:border-primary focus:ring-0 transition-colors" placeholder="Your full name" />
                                         </div>
                                         <div>
                                             <label htmlFor="ask-email" className="block text-[11px] font-bold uppercase tracking-[0.15em] text-white/30 mb-2">
-                                                Email <span className="text-primary">*</span>
+                                                Email Address <span className="text-primary">*</span>
                                             </label>
-                                            <input type="email" id="ask-email" required className="w-full border-0 border-b-2 border-white/10 bg-transparent py-3 text-sm text-white placeholder-white/20 focus:border-primary focus:ring-0 transition-colors" placeholder="you@email.com" />
+                                            <input type="email" id="ask-email" required className="w-full border-0 border-b-2 border-white/10 bg-transparent py-3 text-sm text-white placeholder-white/20 focus:border-primary focus:ring-0 transition-colors" placeholder="info@breadboard.in" />
                                         </div>
                                     </div>
 
-                                    <div className="mb-6">
-                                        <label htmlFor="ask-org" className="block text-[11px] font-bold uppercase tracking-[0.15em] text-white/30 mb-2">
-                                            Organization <span className="text-white/15">(Optional)</span>
-                                        </label>
-                                        <input type="text" id="ask-org" className="w-full border-0 border-b-2 border-white/10 bg-transparent py-3 text-sm text-white placeholder-white/20 focus:border-primary focus:ring-0 transition-colors" placeholder="Your organization" />
+                                    <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+                                        <div>
+                                            <label htmlFor="ask-org" className="block text-[11px] font-bold uppercase tracking-[0.15em] text-white/30 mb-2">
+                                                Organisation Name <span className="text-primary">*</span>
+                                            </label>
+                                            <input type="text" id="ask-org" required className="w-full border-0 border-b-2 border-white/10 bg-transparent py-3 text-sm text-white placeholder-white/20 focus:border-primary focus:ring-0 transition-colors" placeholder="Company / Institution" />
+                                        </div>
+                                        <div>
+                                            <label htmlFor="ask-designation" className="block text-[11px] font-bold uppercase tracking-[0.15em] text-white/30 mb-2">
+                                                Designation
+                                            </label>
+                                            <input type="text" id="ask-designation" className="w-full border-0 border-b-2 border-white/10 bg-transparent py-3 text-sm text-white placeholder-white/20 focus:border-primary focus:ring-0 transition-colors" placeholder="Your role" />
+                                        </div>
+                                    </div>
+
+                                    <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+                                        <div>
+                                            <label htmlFor="ask-inst" className="block text-[11px] font-bold uppercase tracking-[0.15em] text-white/30 mb-2">
+                                                Type of Institution <span className="text-primary">*</span>
+                                            </label>
+                                            <select id="ask-inst" required className="w-full border-0 border-b-2 border-white/10 bg-transparent py-3 text-sm text-white focus:border-primary focus:ring-0 transition-colors appearance-none" style={{ backgroundColor: '#0f0f0f' }}>
+                                                <option value="" className="text-white/50">Select type</option>
+                                                {institutionTypes.map((t) => <option key={t} value={t} className="text-white">{t}</option>)}
+                                            </select>
+                                        </div>
+                                        <div>
+                                            <label htmlFor="ask-engage" className="block text-[11px] font-bold uppercase tracking-[0.15em] text-white/30 mb-2">
+                                                Nature of Engagement <span className="text-primary">*</span>
+                                            </label>
+                                            <select id="ask-engage" required className="w-full border-0 border-b-2 border-white/10 bg-transparent py-3 text-sm text-white focus:border-primary focus:ring-0 transition-colors appearance-none" style={{ backgroundColor: '#0f0f0f' }}>
+                                                <option value="" className="text-white/50">Select engagement</option>
+                                                {engagementTypes.map((t) => <option key={t} value={t} className="text-white">{t}</option>)}
+                                            </select>
+                                        </div>
                                     </div>
 
                                     <div className="mb-8">
-                                        <label htmlFor="ask-question" className="block text-[11px] font-bold uppercase tracking-[0.15em] text-white/30 mb-2">
-                                            Your Question <span className="text-primary">*</span>
+                                        <label htmlFor="ask-msg" className="block text-[11px] font-bold uppercase tracking-[0.15em] text-white/30 mb-2">
+                                            Your Message <span className="text-primary">*</span>
                                         </label>
                                         <textarea
-                                            id="ask-question"
+                                            id="ask-msg"
                                             required
                                             rows={5}
                                             className="w-full border-0 border-b-2 border-white/10 bg-transparent py-3 text-sm text-white placeholder-white/20 focus:border-primary focus:ring-0 transition-colors resize-none"
-                                            placeholder="What actually makes monitoring systems work? Can Bred explain something confusing?"
+                                            placeholder="Please outline your objectives, scope, and expected timelines."
                                         ></textarea>
                                     </div>
 
                                     <button type="submit" className="w-full py-4 text-sm font-bold uppercase tracking-wider text-black bg-primary hover:bg-primary-dark transition-all duration-300 shadow-lg shadow-primary/20 hover:shadow-xl group flex items-center justify-center gap-2">
-                                        Band In
+                                        SEND IN
                                         <span className="material-symbols-outlined text-lg group-hover:translate-x-1 transition-transform">arrow_forward</span>
                                     </button>
                                 </form>
