@@ -131,9 +131,7 @@ export default function About() {
                                 className="group bg-white border border-black/5 p-8 md:p-10 hover:shadow-2xl hover:shadow-primary/5 transition-all duration-500 hover:-translate-y-1 relative overflow-hidden"
                             >
                                 <div className="absolute top-0 left-0 w-full h-[3px] bg-primary scale-x-0 group-hover:scale-x-100 transition-transform duration-700 origin-left"></div>
-                                <div className="absolute top-6 right-8 text-7xl font-extrabold text-black/[0.03] select-none">
-                                    {String(i + 1).padStart(2, '0')}
-                                </div>
+
                                 <div className="w-14 h-14 bg-primary/8 flex items-center justify-center mb-6 text-primary group-hover:bg-primary group-hover:text-black transition-colors duration-300">
                                     <span className="material-symbols-outlined text-2xl">{card.icon}</span>
                                 </div>

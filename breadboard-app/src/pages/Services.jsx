@@ -142,10 +142,7 @@ export default function Services() {
                                 key={p.title}
                                 className="group relative glass-card p-8 md:p-10 hover:bg-white/[0.06] transition-all duration-500 hover:border-primary/20 gold-glow hover:shadow-primary/5"
                             >
-                                {/* Number accent */}
-                                <div className="absolute top-6 right-8 text-6xl font-extrabold text-white/[0.03] select-none">
-                                    {String(partners.indexOf(p) + 1).padStart(2, '0')}
-                                </div>
+
 
                                 <div className="flex items-start gap-5 mb-5">
                                     <div className="w-14 h-14 bg-primary/10 flex items-center justify-center text-primary flex-shrink-0 group-hover:bg-primary group-hover:text-black transition-colors duration-300">
