@@ -25,7 +25,6 @@ export default function About() {
     const [heroRef, heroInView] = useInView(0.1);
     const [whoRef, whoInView] = useInView();
     const [approachRef, approachInView] = useInView();
-    const [ctaRef, ctaInView] = useInView();
 
     return (
         <>
@@ -140,28 +139,7 @@ export default function About() {
                 </div>
             </section>
 
-            {/* ═══════════════════════════════════════
-          CTA
-          ═══════════════════════════════════════ */}
-            <section ref={ctaRef} className="relative py-28 md:py-36 bg-black overflow-hidden">
-                <div className="absolute inset-0 opacity-[0.03]"
-                    style={{ backgroundImage: "url(\"data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffbd59' fill-opacity='1'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E\")" }}
-                ></div>
-                <div className={`relative max-w-4xl mx-auto px-4 text-center ${ctaInView ? 'animate-fade-up' : 'opacity-0'}`}>
-                    <div className="section-divider mx-auto mb-8"></div>
-                    <h2 className="text-3xl md:text-4xl font-extrabold text-white mb-6 tracking-tight">
-                        Let's Build Impact That Lasts
-                    </h2>
-                    <p className="text-lg text-white/30 mb-10 max-w-2xl mx-auto leading-relaxed">
-                        Connect with us to design structured, scalable, and measurable impact systems.
-                    </p>
-                    <div className="flex flex-col sm:flex-row justify-center gap-4">
-                        <Link to="/contact" className="inline-flex items-center justify-center px-10 py-4 text-sm font-bold uppercase tracking-wider text-black bg-primary hover:bg-primary-dark transition-all duration-300 shadow-lg shadow-primary/20 hover:-translate-y-0.5">
-                            Schedule a Consultation
-                        </Link>
-                    </div>
-                </div>
-            </section>
+
         </>
     );
 }

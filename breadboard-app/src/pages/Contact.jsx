@@ -48,9 +48,10 @@ export default function Contact() {
             const form = e.target;
             const formData = new FormData(form);
 
-            const scriptURL = "https://script.google.com/macros/s/AKfycbwjM54thpu2i9RxCCsuhJ7KCLAEj7L1YqUk_DyRNN_oqE0aYoW2Ogb2nuHn0wGcry_q-Q/exec";
+            const scriptURL = "https://script.google.com/macros/s/AKfycbwlTYCD2GLjJT70vtuiB4ZYgzIMDpmgRAsaLMcEoQLqDulKSIxmLSpILOH9tRHySSk1rA/exec";
 
             const params = new URLSearchParams();
+            params.append("source", "Contact Form");
             formData.forEach((value, key) => {
                 params.append(key, value);
             });
@@ -64,6 +65,11 @@ export default function Contact() {
 
             setSubmitted(true);
             form.reset();
+
+            // Show the form back again after 5 seconds
+            setTimeout(() => {
+                setSubmitted(false);
+            }, 5000);
         } catch (error) {
             console.error("Error submitting form", error);
         } finally {
@@ -174,9 +180,9 @@ export default function Contact() {
                                         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                                             <div>
                                                 <label htmlFor="phone" className="block text-[11px] font-bold uppercase tracking-[0.15em] text-black/30 mb-2">
-                                                    Phone Number <span className="text-primary">*</span>
+                                                    Phone Number
                                                 </label>
-                                                <input type="tel" id="phone" name="phone" required className="w-full border-0 border-b-2 border-black/10 bg-transparent py-3 text-sm text-black placeholder-black/20 focus:border-primary focus:ring-0 transition-colors" placeholder="+91 00000-00000" />
+                                                <input type="tel" id="phone" name="phone" className="w-full border-0 border-b-2 border-black/10 bg-transparent py-3 text-sm text-black placeholder-black/20 focus:border-primary focus:ring-0 transition-colors" placeholder="+91 00000-00000" />
                                             </div>
                                             <div>
                                                 <label htmlFor="org" className="block text-[11px] font-bold uppercase tracking-[0.15em] text-black/30 mb-2">

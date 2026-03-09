@@ -115,9 +115,10 @@ export default function BBX() {
             const formData = new FormData(form);
 
             // Same script URL as /contact — feeds into the same Google Sheet
-            const scriptURL = "https://script.google.com/macros/s/AKfycbwjM54thpu2i9RxCCsuhJ7KCLAEj7L1YqUk_DyRNN_oqE0aYoW2Ogb2nuHn0wGcry_q-Q/exec";
+            const scriptURL = "https://script.google.com/macros/s/AKfycbwlTYCD2GLjJT70vtuiB4ZYgzIMDpmgRAsaLMcEoQLqDulKSIxmLSpILOH9tRHySSk1rA/exec";
 
             const params = new URLSearchParams();
+            params.append("source", "BBX - Ask Bred");
             formData.forEach((value, key) => {
                 params.append(key, value);
             });
@@ -131,6 +132,11 @@ export default function BBX() {
 
             setSubmitted(true);
             form.reset();
+
+            // Show the form back again after 5 seconds
+            setTimeout(() => {
+                setSubmitted(false);
+            }, 5000);
         } catch (error) {
             console.error("Error submitting form", error);
         } finally {
@@ -368,9 +374,9 @@ export default function BBX() {
                                     <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
                                         <div>
                                             <label htmlFor="ask-phone" className="block text-[11px] font-bold uppercase tracking-[0.15em] text-white/30 mb-2">
-                                                Phone Number <span className="text-primary">*</span>
+                                                Phone Number
                                             </label>
-                                            <input type="tel" id="ask-phone" name="phone" required className="w-full border-0 border-b-2 border-white/10 bg-transparent py-3 text-sm text-white placeholder-white/20 focus:border-primary focus:ring-0 transition-colors" placeholder="+91 00000-00000" />
+                                            <input type="tel" id="ask-phone" name="phone" className="w-full border-0 border-b-2 border-white/10 bg-transparent py-3 text-sm text-white placeholder-white/20 focus:border-primary focus:ring-0 transition-colors" placeholder="+91 00000-00000" />
                                         </div>
                                         <div>
                                             <label htmlFor="ask-org" className="block text-[11px] font-bold uppercase tracking-[0.15em] text-white/30 mb-2">
