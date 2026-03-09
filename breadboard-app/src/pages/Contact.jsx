@@ -173,20 +173,26 @@ export default function Contact() {
 
                                         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                                             <div>
+                                                <label htmlFor="phone" className="block text-[11px] font-bold uppercase tracking-[0.15em] text-black/30 mb-2">
+                                                    Phone Number <span className="text-primary">*</span>
+                                                </label>
+                                                <input type="tel" id="phone" name="phone" required className="w-full border-0 border-b-2 border-black/10 bg-transparent py-3 text-sm text-black placeholder-black/20 focus:border-primary focus:ring-0 transition-colors" placeholder="+91 00000-00000" />
+                                            </div>
+                                            <div>
                                                 <label htmlFor="org" className="block text-[11px] font-bold uppercase tracking-[0.15em] text-black/30 mb-2">
                                                     Organisation Name <span className="text-primary">*</span>
                                                 </label>
                                                 <input type="text" id="org" name="organization" required className="w-full border-0 border-b-2 border-black/10 bg-transparent py-3 text-sm text-black placeholder-black/20 focus:border-primary focus:ring-0 transition-colors" placeholder="Company / Institution" />
                                             </div>
+                                        </div>
+
+                                        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                                             <div>
                                                 <label htmlFor="designation" className="block text-[11px] font-bold uppercase tracking-[0.15em] text-black/30 mb-2">
                                                     Designation
                                                 </label>
                                                 <input type="text" id="designation" name="designation" className="w-full border-0 border-b-2 border-black/10 bg-transparent py-3 text-sm text-black placeholder-black/20 focus:border-primary focus:ring-0 transition-colors" placeholder="Your role" />
                                             </div>
-                                        </div>
-
-                                        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                                             <div>
                                                 <label htmlFor="inst" className="block text-[11px] font-bold uppercase tracking-[0.15em] text-black/30 mb-2">
                                                     Type of Institution <span className="text-primary">*</span>
@@ -196,6 +202,9 @@ export default function Contact() {
                                                     {institutionTypes.map((t) => <option key={t} value={t}>{t}</option>)}
                                                 </select>
                                             </div>
+                                        </div>
+
+                                        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                                             <div>
                                                 <label htmlFor="engage" className="block text-[11px] font-bold uppercase tracking-[0.15em] text-black/30 mb-2">
                                                     Nature of Engagement <span className="text-primary">*</span>
@@ -222,8 +231,8 @@ export default function Contact() {
                                 </div>
                             )}
                         </div>
-                    </div>
-                </div>
+                    </div >
+                </div >
             </section >
         </>
     );
