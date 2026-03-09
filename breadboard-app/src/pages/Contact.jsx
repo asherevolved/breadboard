@@ -48,17 +48,21 @@ export default function Contact() {
             const form = e.target;
             const formData = new FormData(form);
 
-            // PASTE YOUR GOOGLE WEB APP URL BELOW
-            const scriptURL = "YOUR_GOOGLE_SCRIPT_URL_HERE";
+            const scriptURL = "https://script.google.com/macros/s/AKfycbw2kWSICiaZn5Lmty8nXxj-CYRLSkxsFjy7zga0hwpIQLbhAHd0eCvIDP4LRTPXMcZpOA/exec";
 
-            // We use simple form submission to avoid CORS issues with Google Apps Script
-            const res = await fetch(scriptURL, {
-                method: "POST",
-                body: formData,
-                mode: "no-cors" // Google Apps Script requires no-cors for direct browser POSTs
+            // Convert FormData to URLSearchParams for better Google Apps Script compatibility
+            const searchParams = new URLSearchParams();
+            formData.forEach((value, key) => {
+                searchParams.append(key, value);
             });
 
-            // With no-cors, we can't read the response, so we assume success if no error is thrown
+            await fetch(scriptURL, {
+                method: "POST",
+                body: searchParams,
+                mode: "no-cors"
+            });
+
+            // With no-cors, we assume success if no error is thrown
             setSubmitted(true);
             form.reset();
         } catch (error) {
