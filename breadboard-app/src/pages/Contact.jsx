@@ -45,28 +45,22 @@ export default function Contact() {
         setIsSubmitting(true);
 
         try {
-            const formData = new FormData(e.target);
-            // Replace with your actual Web3Forms Access Key from https://web3forms.com/
-            formData.append("access_key", "YOUR_ACCESS_KEY_HERE");
+            const form = e.target;
+            const formData = new FormData(form);
 
-            const object = Object.fromEntries(formData);
-            const json = JSON.stringify(object);
+            // PASTE YOUR GOOGLE WEB APP URL BELOW
+            const scriptURL = "YOUR_GOOGLE_SCRIPT_URL_HERE";
 
-            const res = await fetch("https://api.web3forms.com/submit", {
+            // We use simple form submission to avoid CORS issues with Google Apps Script
+            const res = await fetch(scriptURL, {
                 method: "POST",
-                headers: {
-                    "Content-Type": "application/json",
-                    Accept: "application/json"
-                },
-                body: json
+                body: formData,
+                mode: "no-cors" // Google Apps Script requires no-cors for direct browser POSTs
             });
-            const data = await res.json();
 
-            if (data.success) {
-                setSubmitted(true);
-            } else {
-                console.error("Form submission failed", data);
-            }
+            // With no-cors, we can't read the response, so we assume success if no error is thrown
+            setSubmitted(true);
+            form.reset();
         } catch (error) {
             console.error("Error submitting form", error);
         } finally {
