@@ -60,7 +60,7 @@ export default function About() {
                 <div className="grid grid-cols-1 lg:grid-cols-2 min-h-[700px]">
                     {/* Image side */}
                     <div className={`relative overflow-hidden img-zoom ${whoInView ? 'animate-slide-left' : 'opacity-0'}`}>
-                        <img src="/images/strategy.png" alt="Advisory team at work" className="w-full h-full object-cover min-h-[400px]" />
+                        <img src="/images/who-we-are.png" alt="Collaborative advisory team" className="w-full h-full object-cover min-h-[400px]" />
                         <div className="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent"></div>
                     </div>
 

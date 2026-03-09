@@ -94,6 +94,7 @@ export default function BBX() {
     const [sectionsRef, sectionsInView] = useInView(0.08);
     const [askRef, askInView] = useInView(0.1);
     const [submitted, setSubmitted] = useState(false);
+    const [isSubmitting, setIsSubmitting] = useState(false);
     const [bredBounce, setBredBounce] = useState(false);
     const [hoveredCard, setHoveredCard] = useState(null);
 
@@ -105,9 +106,36 @@ export default function BBX() {
         return () => clearInterval(interval);
     }, []);
 
-    const handleSubmit = (e) => {
+    const handleSubmit = async (e) => {
         e.preventDefault();
-        setSubmitted(true);
+        setIsSubmitting(true);
+
+        try {
+            const form = e.target;
+            const formData = new FormData(form);
+
+            // Same script URL as /contact — feeds into the same Google Sheet
+            const scriptURL = "https://script.google.com/macros/s/AKfycbzv7KlTo3VbdGsl3iCLNqPrfZp5lF_Cgbm8jjV0CwZ07fYcbfXp-gBPz66hpaG2rAoVFQ/exec";
+
+            const params = new URLSearchParams();
+            formData.forEach((value, key) => {
+                params.append(key, value);
+            });
+
+            await fetch(scriptURL, {
+                method: "POST",
+                mode: "no-cors",
+                headers: { "Content-Type": "application/x-www-form-urlencoded" },
+                body: params.toString()
+            });
+
+            setSubmitted(true);
+            form.reset();
+        } catch (error) {
+            console.error("Error submitting form", error);
+        } finally {
+            setIsSubmitting(false);
+        }
     };
 
     return (
@@ -220,9 +248,6 @@ export default function BBX() {
 
             {/* ═══════════════════════════════════════
           CONTENT SECTIONS GRID
-          Row 1: 4 cards (Field Notes, Conversations, Deep Dives, Signal)
-          Row 2: 2 wider cards (Bred's Rabbit Holes, Events)
-          Each card has an image thumbnail area
           ═══════════════════════════════════════ */}
             <section ref={sectionsRef} className="py-28 md:py-36 bg-white relative overflow-hidden">
                 {/* Background accents */}
@@ -230,10 +255,8 @@ export default function BBX() {
                 <div className="absolute bottom-0 left-0 w-[400px] h-[400px] bg-primary/[0.03] rounded-full blur-3xl translate-y-1/2 -translate-x-1/2"></div>
 
                 <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-                    {/* Divider line at top */}
                     <div className={`w-full h-px bg-gradient-to-r from-transparent via-black/10 to-transparent mb-16 ${sectionsInView ? 'animate-fade-in' : 'opacity-0'}`}></div>
 
-                    {/* Uniform grid for all 6 cards */}
                     <div className={`grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 mb-5 ${sectionsInView ? 'animate-fade-up delay-100' : 'opacity-0'}`}>
                         {bbxSections.map((section, i) => (
                             <div
@@ -242,16 +265,12 @@ export default function BBX() {
                                 onMouseEnter={() => setHoveredCard(i)}
                                 onMouseLeave={() => setHoveredCard(null)}
                             >
-                                {/* Top gold bar on hover */}
                                 <div className="absolute top-0 left-0 w-full h-[3px] bg-primary scale-x-0 group-hover:scale-x-100 transition-transform duration-700 origin-left"></div>
-
-                                {/* Card content */}
                                 <div className="p-10 flex flex-col items-center text-center">
                                     <div className="w-20 h-20 mb-6 bg-primary/10 flex items-center justify-center text-primary group-hover:bg-primary group-hover:text-black transition-colors duration-300 rounded-2xl">
                                         <span className="material-symbols-outlined text-4xl">{section.icon}</span>
                                     </div>
                                     <h3 className="text-xl font-bold text-black group-hover:text-primary transition-colors mb-6">{section.title}</h3>
-
                                     <span className="inline-flex items-center gap-1.5 text-xs font-bold uppercase tracking-wider text-primary/60">
                                         <span className="w-1.5 h-1.5 bg-primary/40 rounded-full animate-pulse"></span>
                                         Coming Soon
@@ -261,31 +280,26 @@ export default function BBX() {
                         ))}
                     </div>
 
-                    {/* Divider line at bottom */}
                     <div className={`w-full h-px bg-gradient-to-r from-transparent via-black/10 to-transparent mt-16 ${sectionsInView ? 'animate-fade-in delay-500' : 'opacity-0'}`}></div>
                 </div>
             </section>
 
             {/* ═══════════════════════════════════════
-          ASK BRED — "Ask Bred" text left, Form right
+          ASK BRED
           ═══════════════════════════════════════ */}
             <section ref={askRef} className="py-28 md:py-36 bg-dark-surface relative overflow-hidden">
-                {/* Background pattern */}
                 <div className="absolute inset-0 opacity-[0.03]"
                     style={{ backgroundImage: "url(\"data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffbd59' fill-opacity='1'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E\")" }}
                 ></div>
 
                 <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-                    {/* Two-column: "Ask Bred" text LEFT, Form RIGHT */}
                     <div className={`grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-start ${askInView ? 'animate-fade-up' : 'opacity-0'}`}>
-                        {/* LEFT — Ask Bred heading + description + Bred illustration */}
+                        {/* LEFT */}
                         <div className="lg:sticky lg:top-32">
                             <div className="section-divider mb-6"></div>
-
                             <h2 className="text-3xl md:text-5xl font-extrabold text-white tracking-tight mb-6">
                                 Got a Question?
                             </h2>
-
                             <div className="space-y-4 mb-10">
                                 <p className="text-lg text-white/30 leading-relaxed">
                                     Bred spends an unhealthy amount of time going down research rabbit holes and talking to interesting people. If there's something you've been wondering about — an idea, a trend, a confusing concept, or something odd you've noticed in the sector — send it in.
@@ -293,10 +307,7 @@ export default function BBX() {
                                 <p className="text-white/40 text-sm italic">
                                     If it sparks Bred's curiosity, it might turn into a BBX post, a conversation, or a curious little investigation.
                                 </p>
-
                             </div>
-
-                            {/* Bred illustration */}
                             <div className="relative flex items-center gap-5">
                                 <div className="relative">
                                     <div className="absolute inset-0 bg-primary/5 rounded-2xl blur-2xl scale-125"></div>
@@ -337,56 +348,62 @@ export default function BBX() {
                                 </div>
                             ) : (
                                 <form onSubmit={handleSubmit} className="glass-card p-8 md:p-10 relative">
-                                    {/* Form header */}
                                     <div className="absolute top-0 left-0 w-full h-[3px] bg-gradient-to-r from-primary via-primary-dark to-primary"></div>
-
-                                    {/* Form header removed as per request */}
 
                                     <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
                                         <div>
                                             <label htmlFor="ask-name" className="block text-[11px] font-bold uppercase tracking-[0.15em] text-white/30 mb-2">
                                                 Name <span className="text-primary">*</span>
                                             </label>
-                                            <input type="text" id="ask-name" required className="w-full border-0 border-b-2 border-white/10 bg-transparent py-3 text-sm text-white placeholder-white/20 focus:border-primary focus:ring-0 transition-colors" placeholder="Your full name" />
+                                            <input type="text" id="ask-name" name="name" required className="w-full border-0 border-b-2 border-white/10 bg-transparent py-3 text-sm text-white placeholder-white/20 focus:border-primary focus:ring-0 transition-colors" placeholder="Your full name" />
                                         </div>
                                         <div>
                                             <label htmlFor="ask-email" className="block text-[11px] font-bold uppercase tracking-[0.15em] text-white/30 mb-2">
                                                 Email Address <span className="text-primary">*</span>
                                             </label>
-                                            <input type="email" id="ask-email" required className="w-full border-0 border-b-2 border-white/10 bg-transparent py-3 text-sm text-white placeholder-white/20 focus:border-primary focus:ring-0 transition-colors" placeholder="info@breadboard.in" />
+                                            <input type="email" id="ask-email" name="email" required className="w-full border-0 border-b-2 border-white/10 bg-transparent py-3 text-sm text-white placeholder-white/20 focus:border-primary focus:ring-0 transition-colors" placeholder="info@breadboard.in" />
                                         </div>
                                     </div>
 
                                     <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+                                        <div>
+                                            <label htmlFor="ask-phone" className="block text-[11px] font-bold uppercase tracking-[0.15em] text-white/30 mb-2">
+                                                Phone Number <span className="text-primary">*</span>
+                                            </label>
+                                            <input type="tel" id="ask-phone" name="phone" required className="w-full border-0 border-b-2 border-white/10 bg-transparent py-3 text-sm text-white placeholder-white/20 focus:border-primary focus:ring-0 transition-colors" placeholder="+91 00000-00000" />
+                                        </div>
                                         <div>
                                             <label htmlFor="ask-org" className="block text-[11px] font-bold uppercase tracking-[0.15em] text-white/30 mb-2">
                                                 Organisation Name <span className="text-primary">*</span>
                                             </label>
-                                            <input type="text" id="ask-org" required className="w-full border-0 border-b-2 border-white/10 bg-transparent py-3 text-sm text-white placeholder-white/20 focus:border-primary focus:ring-0 transition-colors" placeholder="Company / Institution" />
-                                        </div>
-                                        <div>
-                                            <label htmlFor="ask-designation" className="block text-[11px] font-bold uppercase tracking-[0.15em] text-white/30 mb-2">
-                                                Designation
-                                            </label>
-                                            <input type="text" id="ask-designation" className="w-full border-0 border-b-2 border-white/10 bg-transparent py-3 text-sm text-white placeholder-white/20 focus:border-primary focus:ring-0 transition-colors" placeholder="Your role" />
+                                            <input type="text" id="ask-org" name="organization" required className="w-full border-0 border-b-2 border-white/10 bg-transparent py-3 text-sm text-white placeholder-white/20 focus:border-primary focus:ring-0 transition-colors" placeholder="Company / Institution" />
                                         </div>
                                     </div>
 
                                     <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
                                         <div>
+                                            <label htmlFor="ask-designation" className="block text-[11px] font-bold uppercase tracking-[0.15em] text-white/30 mb-2">
+                                                Designation
+                                            </label>
+                                            <input type="text" id="ask-designation" name="designation" className="w-full border-0 border-b-2 border-white/10 bg-transparent py-3 text-sm text-white placeholder-white/20 focus:border-primary focus:ring-0 transition-colors" placeholder="Your role" />
+                                        </div>
+                                        <div>
                                             <label htmlFor="ask-inst" className="block text-[11px] font-bold uppercase tracking-[0.15em] text-white/30 mb-2">
                                                 Type of Institution <span className="text-primary">*</span>
                                             </label>
-                                            <select id="ask-inst" required className="w-full border-0 border-b-2 border-white/10 bg-transparent py-3 text-sm text-white focus:border-primary focus:ring-0 transition-colors appearance-none" style={{ backgroundColor: '#0f0f0f' }}>
+                                            <select id="ask-inst" name="institution_type" required className="w-full border-0 border-b-2 border-white/10 bg-transparent py-3 text-sm text-white focus:border-primary focus:ring-0 transition-colors appearance-none" style={{ backgroundColor: '#0f0f0f' }}>
                                                 <option value="" className="text-white/50">Select type</option>
                                                 {institutionTypes.map((t) => <option key={t} value={t} className="text-white">{t}</option>)}
                                             </select>
                                         </div>
+                                    </div>
+
+                                    <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
                                         <div>
                                             <label htmlFor="ask-engage" className="block text-[11px] font-bold uppercase tracking-[0.15em] text-white/30 mb-2">
                                                 Nature of Engagement <span className="text-primary">*</span>
                                             </label>
-                                            <select id="ask-engage" required className="w-full border-0 border-b-2 border-white/10 bg-transparent py-3 text-sm text-white focus:border-primary focus:ring-0 transition-colors appearance-none" style={{ backgroundColor: '#0f0f0f' }}>
+                                            <select id="ask-engage" name="engagement_nature" required className="w-full border-0 border-b-2 border-white/10 bg-transparent py-3 text-sm text-white focus:border-primary focus:ring-0 transition-colors appearance-none" style={{ backgroundColor: '#0f0f0f' }}>
                                                 <option value="" className="text-white/50">Select engagement</option>
                                                 {engagementTypes.map((t) => <option key={t} value={t} className="text-white">{t}</option>)}
                                             </select>
@@ -399,6 +416,7 @@ export default function BBX() {
                                         </label>
                                         <textarea
                                             id="ask-msg"
+                                            name="message"
                                             required
                                             rows={5}
                                             className="w-full border-0 border-b-2 border-white/10 bg-transparent py-3 text-sm text-white placeholder-white/20 focus:border-primary focus:ring-0 transition-colors resize-none"
@@ -406,9 +424,9 @@ export default function BBX() {
                                         ></textarea>
                                     </div>
 
-                                    <button type="submit" className="w-full py-4 text-sm font-bold uppercase tracking-wider text-black bg-primary hover:bg-primary-dark transition-all duration-300 shadow-lg shadow-primary/20 hover:shadow-xl group flex items-center justify-center gap-2">
-                                        SEND IN
-                                        <span className="material-symbols-outlined text-lg group-hover:translate-x-1 transition-transform">arrow_forward</span>
+                                    <button type="submit" disabled={isSubmitting} className="w-full py-4 text-sm font-bold uppercase tracking-wider text-black bg-primary hover:bg-primary-dark transition-all duration-300 shadow-lg shadow-primary/20 hover:shadow-xl group flex items-center justify-center gap-2 disabled:opacity-70 disabled:cursor-not-allowed">
+                                        {isSubmitting ? 'SENDING...' : 'SEND IN'}
+                                        {!isSubmitting && <span className="material-symbols-outlined text-lg group-hover:translate-x-1 transition-transform">arrow_forward</span>}
                                     </button>
                                 </form>
                             )}
