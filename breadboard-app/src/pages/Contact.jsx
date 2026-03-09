@@ -50,15 +50,16 @@ export default function Contact() {
 
             const scriptURL = "https://script.google.com/macros/s/AKfycbzv7KlTo3VbdGsl3iCLNqPrfZp5lF_Cgbm8jjV0CwZ07fYcbfXp-gBPz66hpaG2rAoVFQ/exec";
 
-            // Use GET request with params for maximum reliability with Google Sheets
             const params = new URLSearchParams();
             formData.forEach((value, key) => {
                 params.append(key, value);
             });
 
-            await fetch(`${scriptURL}?${params.toString()}`, {
-                method: "GET",
-                mode: "no-cors"
+            await fetch(scriptURL, {
+                method: "POST",
+                mode: "no-cors",
+                headers: { "Content-Type": "application/x-www-form-urlencoded" },
+                body: params.toString()
             });
 
             setSubmitted(true);
