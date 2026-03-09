@@ -32,13 +32,13 @@ export default function Navbar() {
             : 'bg-transparent'
             }`}>
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                <div className="flex justify-between h-20 items-center">
+                <div className="flex justify-between h-[100px] items-center">
                     {/* Logo */}
                     <Link to="/" className="flex items-center group" aria-label="Breadboard Consulting Home">
                         <img
                             src="/images/nav-logo.png"
                             alt="Breadboard Consulting Logo"
-                            className={`h-20 w-auto object-contain transition-all duration-300 ${!scrolled ? 'brightness-0 invert' : ''}`}
+                            className="h-[100px] w-auto object-contain transition-all duration-300"
                         />
                     </Link>
 
