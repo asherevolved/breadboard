@@ -41,10 +41,9 @@ export default function Navbar() {
                     {/* Logo */}
                     <Link to="/" className="flex items-center group" aria-label="Breadboard Consulting Home">
                         <img
-                            src="/images/1 (2).png"
+                            src={isDarkBackground ? "/logo.png" : "/images/1 (2).png"}
                             alt="Breadboard Consulting Logo"
-                            className={`h-[100px] w-auto object-contain transition-all duration-500 ${isDarkBackground ? 'brightness-0 invert' : ''
-                                }`}
+                            className="h-[100px] w-auto object-contain transition-all duration-500"
                         />
                     </Link>
 
