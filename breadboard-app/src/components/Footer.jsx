@@ -90,21 +90,6 @@ export default function Footer() {
                 {/* Bottom */}
                 <div className="border-t border-white/5 pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
                     <p className="text-xs text-white tracking-wider">© {year} Breadboard Consulting. All rights reserved.</p>
-                    <a
-                        href="https://deosoriginals.com"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        style={{ fontSize: '13px', letterSpacing: '0.04em' }}
-                        className="text-white/60 hover:text-primary transition-colors duration-300"
-                    >
-                        Made by{' '}
-                        <span
-                            style={{ fontFamily: "'Cinzel', serif", fontWeight: 600, letterSpacing: '0.06em' }}
-                            className="text-white hover:text-primary transition-colors duration-300"
-                        >
-                            Deos Originals
-                        </span>
-                    </a>
 
                 </div>
             </div>

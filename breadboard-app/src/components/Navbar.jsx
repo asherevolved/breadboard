@@ -8,6 +8,8 @@ export default function Navbar() {
 
     useEffect(() => {
         const handleScroll = () => setScrolled(window.scrollY > 50);
+        // Check initial scroll position
+        handleScroll();
         window.addEventListener('scroll', handleScroll);
         return () => window.removeEventListener('scroll', handleScroll);
     }, []);
@@ -26,8 +28,14 @@ export default function Navbar() {
         { to: '/bbx', label: 'BBX' },
     ];
 
+    // Determine colors based on scroll and mobile menu state
+    const isDarkBackground = !scrolled && !mobileOpen;
+
     return (
-        <nav className="fixed top-0 left-0 right-0 z-50 bg-white shadow-md shadow-black/5 backdrop-blur-md">
+        <nav className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${scrolled || mobileOpen
+            ? 'bg-white shadow-md shadow-black/5 backdrop-blur-md'
+            : 'bg-transparent border-b border-white/5'
+            }`}>
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div className="flex justify-between h-[100px] items-center">
                     {/* Logo */}
@@ -35,7 +43,8 @@ export default function Navbar() {
                         <img
                             src="/images/1 (2).png"
                             alt="Breadboard Consulting Logo"
-                            className="h-[100px] w-auto object-contain transition-all duration-500 brightness-0"
+                            className={`h-[100px] w-auto object-contain transition-all duration-500 ${isDarkBackground ? 'brightness-0 invert' : ''
+                                }`}
                         />
                     </Link>
 
@@ -47,7 +56,7 @@ export default function Navbar() {
                                 to={to}
                                 className={`relative px-4 py-2 text-[13px] font-semibold uppercase tracking-[0.15em] transition-all duration-300 ${isActive(to)
                                     ? 'text-primary'
-                                    : 'text-black/60 hover:text-primary'
+                                    : (isDarkBackground ? 'text-white/60 hover:text-primary' : 'text-black/60 hover:text-primary')
                                     }`}
                             >
                                 {label}
@@ -66,7 +75,7 @@ export default function Navbar() {
 
                     {/* Mobile Toggle */}
                     <button
-                        className="lg:hidden p-2 transition-colors text-black"
+                        className={`lg:hidden p-2 transition-colors ${isDarkBackground ? 'text-white' : 'text-black'}`}
                         onClick={() => setMobileOpen(!mobileOpen)}
                         aria-label="Toggle menu"
                     >
@@ -79,7 +88,7 @@ export default function Navbar() {
                 {/* Mobile Menu */}
                 <div className={`lg:hidden overflow-hidden transition-all duration-500 ease-in-out ${mobileOpen ? 'max-h-[500px] opacity-100' : 'max-h-0 opacity-0'
                     }`}>
-                    <div className="pb-6 pt-2 rounded-b-2xl bg-white shadow-xl shadow-black/5">
+                    <div className="pb-6 pt-2 rounded-b-2xl bg-white">
                         {navLinks.map(({ to, label }) => (
                             <Link
                                 key={to}

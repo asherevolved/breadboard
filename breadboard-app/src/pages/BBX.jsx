@@ -304,7 +304,7 @@ export default function BBX() {
                         <div className="lg:sticky lg:top-32">
                             <div className="section-divider mb-6"></div>
                             <h2 className="text-3xl md:text-5xl font-extrabold text-white tracking-tight mb-6">
-                                Got a Question?
+                                Ask Bred
                             </h2>
                             <div className="space-y-4 mb-10">
                                 <p className="text-lg text-white/30 leading-relaxed">
@@ -368,51 +368,6 @@ export default function BBX() {
                                                 Email Address <span className="text-primary">*</span>
                                             </label>
                                             <input type="email" id="ask-email" name="email" required className="w-full border-0 border-b-2 border-white/10 bg-transparent py-3 text-sm text-white placeholder-white/20 focus:border-primary focus:ring-0 transition-colors" placeholder="info@breadboard.in" />
-                                        </div>
-                                    </div>
-
-                                    <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
-                                        <div>
-                                            <label htmlFor="ask-phone" className="block text-[11px] font-bold uppercase tracking-[0.15em] text-white/30 mb-2">
-                                                Phone Number
-                                            </label>
-                                            <input type="tel" id="ask-phone" name="phone" className="w-full border-0 border-b-2 border-white/10 bg-transparent py-3 text-sm text-white placeholder-white/20 focus:border-primary focus:ring-0 transition-colors" placeholder="+91 00000-00000" />
-                                        </div>
-                                        <div>
-                                            <label htmlFor="ask-org" className="block text-[11px] font-bold uppercase tracking-[0.15em] text-white/30 mb-2">
-                                                Organisation Name <span className="text-primary">*</span>
-                                            </label>
-                                            <input type="text" id="ask-org" name="organization" required className="w-full border-0 border-b-2 border-white/10 bg-transparent py-3 text-sm text-white placeholder-white/20 focus:border-primary focus:ring-0 transition-colors" placeholder="Company / Institution" />
-                                        </div>
-                                    </div>
-
-                                    <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
-                                        <div>
-                                            <label htmlFor="ask-designation" className="block text-[11px] font-bold uppercase tracking-[0.15em] text-white/30 mb-2">
-                                                Designation
-                                            </label>
-                                            <input type="text" id="ask-designation" name="designation" className="w-full border-0 border-b-2 border-white/10 bg-transparent py-3 text-sm text-white placeholder-white/20 focus:border-primary focus:ring-0 transition-colors" placeholder="Your role" />
-                                        </div>
-                                        <div>
-                                            <label htmlFor="ask-inst" className="block text-[11px] font-bold uppercase tracking-[0.15em] text-white/30 mb-2">
-                                                Type of Institution <span className="text-primary">*</span>
-                                            </label>
-                                            <select id="ask-inst" name="institution_type" required className="w-full border-0 border-b-2 border-white/10 bg-transparent py-3 text-sm text-white focus:border-primary focus:ring-0 transition-colors appearance-none" style={{ backgroundColor: '#0f0f0f' }}>
-                                                <option value="" className="text-white/50">Select type</option>
-                                                {institutionTypes.map((t) => <option key={t} value={t} className="text-white">{t}</option>)}
-                                            </select>
-                                        </div>
-                                    </div>
-
-                                    <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
-                                        <div>
-                                            <label htmlFor="ask-engage" className="block text-[11px] font-bold uppercase tracking-[0.15em] text-white/30 mb-2">
-                                                Nature of Engagement <span className="text-primary">*</span>
-                                            </label>
-                                            <select id="ask-engage" name="engagement_nature" required className="w-full border-0 border-b-2 border-white/10 bg-transparent py-3 text-sm text-white focus:border-primary focus:ring-0 transition-colors appearance-none" style={{ backgroundColor: '#0f0f0f' }}>
-                                                <option value="" className="text-white/50">Select engagement</option>
-                                                {engagementTypes.map((t) => <option key={t} value={t} className="text-white">{t}</option>)}
-                                            </select>
                                         </div>
                                     </div>
 
