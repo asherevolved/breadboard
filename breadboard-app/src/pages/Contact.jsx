@@ -48,21 +48,19 @@ export default function Contact() {
             const form = e.target;
             const formData = new FormData(form);
 
-            const scriptURL = "https://script.google.com/macros/s/AKfycbw2kWSICiaZn5Lmty8nXxj-CYRLSkxsFjy7zga0hwpIQLbhAHd0eCvIDP4LRTPXMcZpOA/exec";
+            const scriptURL = "https://script.google.com/macros/s/AKfycbw8g5V3ph8DgXZfmu0-J4hWuRY1L9yMj_0-EVaP9LZxgZ5a2HN5TJT6aTXFvNCp5dP_0Q/exec";
 
-            // Convert FormData to URLSearchParams for better Google Apps Script compatibility
-            const searchParams = new URLSearchParams();
+            // Use GET request with params for maximum reliability with Google Sheets
+            const params = new URLSearchParams();
             formData.forEach((value, key) => {
-                searchParams.append(key, value);
+                params.append(key, value);
             });
 
-            await fetch(scriptURL, {
-                method: "POST",
-                body: searchParams,
+            await fetch(`${scriptURL}?${params.toString()}`, {
+                method: "GET",
                 mode: "no-cors"
             });
 
-            // With no-cors, we assume success if no error is thrown
             setSubmitted(true);
             form.reset();
         } catch (error) {
