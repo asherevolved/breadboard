@@ -36,12 +36,42 @@ const engagementTypes = [
 
 export default function Contact() {
     const [submitted, setSubmitted] = useState(false);
+    const [isSubmitting, setIsSubmitting] = useState(false);
     const [heroRef, heroInView] = useInView(0.1);
     const [formRef, formInView] = useInView();
 
-    const handleSubmit = (e) => {
+    const handleSubmit = async (e) => {
         e.preventDefault();
-        setSubmitted(true);
+        setIsSubmitting(true);
+
+        try {
+            const formData = new FormData(e.target);
+            // Replace with your actual Web3Forms Access Key from https://web3forms.com/
+            formData.append("access_key", "YOUR_ACCESS_KEY_HERE");
+
+            const object = Object.fromEntries(formData);
+            const json = JSON.stringify(object);
+
+            const res = await fetch("https://api.web3forms.com/submit", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                    Accept: "application/json"
+                },
+                body: json
+            });
+            const data = await res.json();
+
+            if (data.success) {
+                setSubmitted(true);
+            } else {
+                console.error("Form submission failed", data);
+            }
+        } catch (error) {
+            console.error("Error submitting form", error);
+        } finally {
+            setIsSubmitting(false);
+        }
     };
 
     return (
@@ -134,13 +164,13 @@ export default function Contact() {
                                                 <label htmlFor="name" className="block text-[11px] font-bold uppercase tracking-[0.15em] text-black/30 mb-2">
                                                     Name <span className="text-primary">*</span>
                                                 </label>
-                                                <input type="text" id="name" required className="w-full border-0 border-b-2 border-black/10 bg-transparent py-3 text-sm text-black placeholder-black/20 focus:border-primary focus:ring-0 transition-colors" placeholder="Your full name" />
+                                                <input type="text" id="name" name="name" required className="w-full border-0 border-b-2 border-black/10 bg-transparent py-3 text-sm text-black placeholder-black/20 focus:border-primary focus:ring-0 transition-colors" placeholder="Your full name" />
                                             </div>
                                             <div>
                                                 <label htmlFor="email" className="block text-[11px] font-bold uppercase tracking-[0.15em] text-black/30 mb-2">
                                                     Email Address <span className="text-primary">*</span>
                                                 </label>
-                                                <input type="email" id="email" required className="w-full border-0 border-b-2 border-black/10 bg-transparent py-3 text-sm text-black placeholder-black/20 focus:border-primary focus:ring-0 transition-colors" placeholder="you@company.com" />
+                                                <input type="email" id="email" name="email" required className="w-full border-0 border-b-2 border-black/10 bg-transparent py-3 text-sm text-black placeholder-black/20 focus:border-primary focus:ring-0 transition-colors" placeholder="you@company.com" />
                                             </div>
                                         </div>
 
@@ -149,13 +179,13 @@ export default function Contact() {
                                                 <label htmlFor="org" className="block text-[11px] font-bold uppercase tracking-[0.15em] text-black/30 mb-2">
                                                     Organisation Name <span className="text-primary">*</span>
                                                 </label>
-                                                <input type="text" id="org" required className="w-full border-0 border-b-2 border-black/10 bg-transparent py-3 text-sm text-black placeholder-black/20 focus:border-primary focus:ring-0 transition-colors" placeholder="Company / Institution" />
+                                                <input type="text" id="org" name="organization" required className="w-full border-0 border-b-2 border-black/10 bg-transparent py-3 text-sm text-black placeholder-black/20 focus:border-primary focus:ring-0 transition-colors" placeholder="Company / Institution" />
                                             </div>
                                             <div>
                                                 <label htmlFor="designation" className="block text-[11px] font-bold uppercase tracking-[0.15em] text-black/30 mb-2">
                                                     Designation
                                                 </label>
-                                                <input type="text" id="designation" className="w-full border-0 border-b-2 border-black/10 bg-transparent py-3 text-sm text-black placeholder-black/20 focus:border-primary focus:ring-0 transition-colors" placeholder="Your role" />
+                                                <input type="text" id="designation" name="designation" className="w-full border-0 border-b-2 border-black/10 bg-transparent py-3 text-sm text-black placeholder-black/20 focus:border-primary focus:ring-0 transition-colors" placeholder="Your role" />
                                             </div>
                                         </div>
 
@@ -164,7 +194,7 @@ export default function Contact() {
                                                 <label htmlFor="inst" className="block text-[11px] font-bold uppercase tracking-[0.15em] text-black/30 mb-2">
                                                     Type of Institution <span className="text-primary">*</span>
                                                 </label>
-                                                <select id="inst" required className="w-full border-0 border-b-2 border-black/10 bg-transparent py-3 text-sm text-black focus:border-primary focus:ring-0 transition-colors">
+                                                <select id="inst" name="institution_type" required className="w-full border-0 border-b-2 border-black/10 bg-transparent py-3 text-sm text-black focus:border-primary focus:ring-0 transition-colors">
                                                     <option value="">Select type</option>
                                                     {institutionTypes.map((t) => <option key={t} value={t}>{t}</option>)}
                                                 </select>
@@ -173,7 +203,7 @@ export default function Contact() {
                                                 <label htmlFor="engage" className="block text-[11px] font-bold uppercase tracking-[0.15em] text-black/30 mb-2">
                                                     Nature of Engagement <span className="text-primary">*</span>
                                                 </label>
-                                                <select id="engage" required className="w-full border-0 border-b-2 border-black/10 bg-transparent py-3 text-sm text-black focus:border-primary focus:ring-0 transition-colors">
+                                                <select id="engage" name="engagement_nature" required className="w-full border-0 border-b-2 border-black/10 bg-transparent py-3 text-sm text-black focus:border-primary focus:ring-0 transition-colors">
                                                     <option value="">Select engagement</option>
                                                     {engagementTypes.map((t) => <option key={t} value={t}>{t}</option>)}
                                                 </select>
@@ -184,12 +214,12 @@ export default function Contact() {
                                             <label htmlFor="msg" className="block text-[11px] font-bold uppercase tracking-[0.15em] text-black/30 mb-2">
                                                 Your Message <span className="text-primary">*</span>
                                             </label>
-                                            <textarea id="msg" required rows={4} className="w-full border-0 border-b-2 border-black/10 bg-transparent py-3 text-sm text-black placeholder-black/20 focus:border-primary focus:ring-0 transition-colors resize-none" placeholder="Please outline your objectives, scope, and expected timelines."></textarea>
+                                            <textarea id="msg" name="message" required rows={4} className="w-full border-0 border-b-2 border-black/10 bg-transparent py-3 text-sm text-black placeholder-black/20 focus:border-primary focus:ring-0 transition-colors resize-none" placeholder="Please outline your objectives, scope, and expected timelines."></textarea>
                                         </div>
 
-                                        <button type="submit" className="w-full py-4 text-sm font-bold uppercase tracking-wider text-black bg-primary hover:bg-primary-dark transition-all duration-300 shadow-lg shadow-primary/20 hover:shadow-xl group flex items-center justify-center gap-2">
-                                            Submit
-                                            <span className="material-symbols-outlined text-lg group-hover:translate-x-1 transition-transform">arrow_forward</span>
+                                        <button type="submit" disabled={isSubmitting} className="w-full py-4 text-sm font-bold uppercase tracking-wider text-black bg-primary hover:bg-primary-dark transition-all duration-300 shadow-lg shadow-primary/20 hover:shadow-xl group flex items-center justify-center gap-2 disabled:opacity-70 disabled:cursor-not-allowed">
+                                            {isSubmitting ? 'Submitting...' : 'Submit'}
+                                            {!isSubmitting && <span className="material-symbols-outlined text-lg group-hover:translate-x-1 transition-transform">arrow_forward</span>}
                                         </button>
                                     </form>
                                 </div>
