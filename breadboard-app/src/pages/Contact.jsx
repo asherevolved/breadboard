@@ -48,7 +48,7 @@ export default function Contact() {
             const form = e.target;
             const formData = new FormData(form);
 
-            const scriptURL = "https://script.google.com/macros/s/AKfycbyQNKRlouoKKFlgvrSPHEI_j4XNr4ICf-q-AXMBBsqhqaBZp5UarM1PcVZj1U0Ub45Big/exec";
+            const scriptURL = "https://script.google.com/macros/s/AKfycbwjM54thpu2i9RxCCsuhJ7KCLAEj7L1YqUk_DyRNN_oqE0aYoW2Ogb2nuHn0wGcry_q-Q/exec";
 
             const params = new URLSearchParams();
             formData.forEach((value, key) => {

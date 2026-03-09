@@ -115,7 +115,7 @@ export default function BBX() {
             const formData = new FormData(form);
 
             // Same script URL as /contact — feeds into the same Google Sheet
-            const scriptURL = "https://script.google.com/macros/s/AKfycbzv7KlTo3VbdGsl3iCLNqPrfZp5lF_Cgbm8jjV0CwZ07fYcbfXp-gBPz66hpaG2rAoVFQ/exec";
+            const scriptURL = "https://script.google.com/macros/s/AKfycbwjM54thpu2i9RxCCsuhJ7KCLAEj7L1YqUk_DyRNN_oqE0aYoW2Ogb2nuHn0wGcry_q-Q/exec";
 
             const params = new URLSearchParams();
             formData.forEach((value, key) => {
