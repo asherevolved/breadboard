@@ -48,7 +48,7 @@ export default function Contact() {
             const form = e.target;
             const formData = new FormData(form);
 
-            const scriptURL = "https://script.google.com/macros/s/AKfycbw8g5V3ph8DgXZfmu0-J4hWuRY1L9yMj_0-EVaP9LZxgZ5a2HN5TJT6aTXFvNCp5dP_0Q/exec";
+            const scriptURL = "https://script.google.com/macros/s/AKfycbzv7KlTo3VbdGsl3iCLNqPrfZp5lF_Cgbm8jjV0CwZ07fYcbfXp-gBPz66hpaG2rAoVFQ/exec";
 
             // Use GET request with params for maximum reliability with Google Sheets
             const params = new URLSearchParams();
