@@ -381,7 +381,7 @@ export default function BBX() {
                                             required
                                             rows={5}
                                             className="w-full border-0 border-b-2 border-white/10 bg-transparent py-3 text-sm text-white placeholder-white/20 focus:border-primary focus:ring-0 transition-colors resize-none"
-                                            placeholder="Please outline your objectives, scope, and expected timelines."
+                                            placeholder="What actually makes monitoring systems work?"
                                         ></textarea>
                                     </div>
 
