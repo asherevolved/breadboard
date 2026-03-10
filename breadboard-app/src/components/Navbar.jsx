@@ -32,18 +32,18 @@ export default function Navbar() {
     const isDarkBackground = !scrolled && !mobileOpen;
 
     return (
-        <nav className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${scrolled || mobileOpen
+        <nav className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 overflow-visible ${scrolled || mobileOpen
             ? 'bg-white shadow-md shadow-black/5 backdrop-blur-md'
             : 'bg-transparent border-b border-white/5'
             }`}>
             <div className="max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-8">
-                <div className="flex justify-between h-[110px] items-center">
+                <div className="flex justify-between h-[160px] items-center">
                     {/* Logo */}
                     <Link to="/" className="flex items-center group" aria-label="Breadboard Consulting Home">
                         <img
                             src={isDarkBackground ? "/logo.png" : "/images/1 (2).png"}
                             alt="Breadboard Consulting Logo"
-                            className="h-[110px] w-auto object-contain transition-all duration-500"
+                            className="h-[170px] w-auto object-contain transition-all duration-500"
                         />
                     </Link>
 
