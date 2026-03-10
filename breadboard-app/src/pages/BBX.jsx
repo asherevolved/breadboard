@@ -38,7 +38,7 @@ const bbxSections = [
     },
     {
         icon: 'cell_tower',
-        title: 'Signal',
+        title: 'Signal Boost',
         desc: 'Spotlighting interesting reports, tools and frameworks, new policies, innovative programs — work that deserves attention.',
         image: '/images/bred-tie-nobg-removebg-preview.png',
         color: '#c4862e',
@@ -169,7 +169,7 @@ export default function BBX() {
                     ></div>
                 </div>
 
-                <div className="relative max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 pt-32 pb-20">
+                <div className="relative max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-8 pt-32 pb-20">
                     <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
                         {/* LEFT — Bred character (coffee mug pose) */}
                         <div className={`flex justify-center ${heroInView ? 'animate-fade-up' : 'opacity-0'}`}>
@@ -260,7 +260,7 @@ export default function BBX() {
                 <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-primary/[0.02] rounded-full blur-3xl -translate-y-1/2 translate-x-1/2"></div>
                 <div className="absolute bottom-0 left-0 w-[400px] h-[400px] bg-primary/[0.03] rounded-full blur-3xl translate-y-1/2 -translate-x-1/2"></div>
 
-                <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+                <div className="max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
                     <div className={`w-full h-px bg-gradient-to-r from-transparent via-black/10 to-transparent mb-16 ${sectionsInView ? 'animate-fade-in' : 'opacity-0'}`}></div>
 
                     <div className={`grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 mb-5 ${sectionsInView ? 'animate-fade-up delay-100' : 'opacity-0'}`}>
@@ -298,7 +298,7 @@ export default function BBX() {
                     style={{ backgroundImage: "url(\"data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffbd59' fill-opacity='1'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E\")" }}
                 ></div>
 
-                <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+                <div className="max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
                     <div className={`grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-start ${askInView ? 'animate-fade-up' : 'opacity-0'}`}>
                         {/* LEFT */}
                         <div className="lg:sticky lg:top-32">

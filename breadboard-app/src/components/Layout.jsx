@@ -8,6 +8,18 @@ export default function Layout() {
 
     useEffect(() => {
         window.scrollTo(0, 0);
+
+        const pathTitles = {
+            '/': 'Breadboard Consulting',
+            '/about': 'About Us | Breadboard Consulting',
+            '/services': 'Services | Breadboard Consulting',
+            '/contact': 'Contact | Breadboard Consulting',
+            '/career': 'Careers | Breadboard Consulting',
+            '/bbx': 'BBX - Breadboard Exchange'
+        };
+
+        const currentTitle = pathTitles[pathname] || 'Breadboard Consulting';
+        document.title = currentTitle;
     }, [pathname]);
 
     return (

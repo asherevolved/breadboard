@@ -88,7 +88,7 @@ export default function Contact() {
                     <div className="absolute inset-0 bg-gradient-to-r from-black/90 via-black/70 to-black/50"></div>
                 </div>
 
-                <div className="relative max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 pt-32 pb-20 text-center">
+                <div className="relative max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-8 pt-32 pb-20 text-center">
                     <div className={`${heroInView ? 'animate-fade-up' : 'opacity-0'}`}>
                         <div className="section-divider mx-auto mb-8"></div>
                     </div>
@@ -106,7 +106,7 @@ export default function Contact() {
           CONTACT FORM
           ═══════════════════════════════════════ */}
             <section ref={formRef} id="contact-form" className="py-28 md:py-36 bg-white">
-                <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div className="max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-8">
                     <div className={`grid lg:grid-cols-5 gap-16 lg:gap-20 ${formInView ? 'animate-fade-up' : 'opacity-0'}`}>
                         {/* Left */}
                         <div className="lg:col-span-2">

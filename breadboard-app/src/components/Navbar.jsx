@@ -36,14 +36,14 @@ export default function Navbar() {
             ? 'bg-white shadow-md shadow-black/5 backdrop-blur-md'
             : 'bg-transparent border-b border-white/5'
             }`}>
-            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                <div className="flex justify-between h-[100px] items-center">
+            <div className="max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-8">
+                <div className="flex justify-between h-[110px] items-center">
                     {/* Logo */}
                     <Link to="/" className="flex items-center group" aria-label="Breadboard Consulting Home">
                         <img
                             src={isDarkBackground ? "/logo.png" : "/images/1 (2).png"}
                             alt="Breadboard Consulting Logo"
-                            className="h-[100px] w-auto object-contain transition-all duration-500"
+                            className="h-[110px] w-auto object-contain transition-all duration-500"
                         />
                     </Link>
 

@@ -53,8 +53,8 @@ export default function Home() {
                     <div className="absolute top-0 left-1/4 w-px h-full bg-gradient-to-b from-transparent via-primary/10 to-transparent"></div>
                 </div>
 
-                <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-32 pb-20">
-                    <div className="max-w-3xl">
+                <div className="relative max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-8 pt-32 pb-20">
+                    <div className="max-w-4xl">
                         <div className={`${heroInView ? 'animate-fade-up' : 'opacity-0'}`}>
                         </div>
 
@@ -92,8 +92,8 @@ export default function Home() {
           INTRO — Who Breadboard is
           ═══════════════════════════════════════ */}
             <section ref={introRef} className="py-28 md:py-36 bg-white">
-                <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
-                    <div className={`max-w-4xl mx-auto ${introInView ? 'animate-fade-up' : 'opacity-0'}`}>
+                <div className="max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-8">
+                    <div className={`max-w-5xl mx-auto ${introInView ? 'animate-fade-up' : 'opacity-0'}`}>
                         <p className="text-lg md:text-xl text-black/50 leading-[1.9] mb-6">
                             Breadboard is a professional advisory and consulting firm working at the intersection of corporate responsibility, development programming, and institutional strengthening. We partner with corporates, development organizations, and public sector stakeholders to design high-impact programs, improve delivery systems, and support evidence-based decision-making.
                         </p>
@@ -108,7 +108,7 @@ export default function Home() {
           WHAT WE DO — Image cards
           ═══════════════════════════════════════ */}
             <section ref={servRef} id="services" className="py-28 md:py-36 bg-cream">
-                <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div className="max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-8">
                     <div className={`text-center mb-20 ${servInView ? 'animate-fade-up' : 'opacity-0'}`}>
                         <h2 className="text-3xl md:text-5xl font-extrabold text-black tracking-tight mb-6">
                             What We Do
@@ -221,7 +221,7 @@ export default function Home() {
                     style={{ background: 'radial-gradient(ellipse, rgba(255,189,89,0.06) 0%, transparent 65%)' }}>
                 </div>
 
-                <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+                <div className="max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
 
 
 
