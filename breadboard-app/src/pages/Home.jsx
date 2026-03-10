@@ -226,7 +226,7 @@ export default function Home() {
 
 
                     {/* ══════════════ DIAGRAM ══════════════ */}
-                    <div className="">
+                    <div className="max-w-4xl mx-auto relative px-4 sm:px-12 lg:px-44">
 
                         {/* ────────────────────────────────────
                             TIER 1 — STRATEGIC INTENT
@@ -283,7 +283,7 @@ export default function Home() {
                         <div className={`relative ${alignInView ? 'animate-fade-up delay-550' : 'opacity-0'}`}>
 
                             {/* ← LEFT: Advisory + Execution */}
-                            <div className={`hidden lg:flex absolute -left-[160px] top-1/2 -translate-y-1/2 items-center gap-0 ${alignInView ? 'animate-slide-from-left delay-700' : 'opacity-0'}`}>
+                            <div className={`hidden lg:flex absolute -left-[140px] top-1/2 -translate-y-1/2 items-center gap-0 ${alignInView ? 'animate-slide-from-left delay-700' : 'opacity-0'}`}>
                                 <div className="flex flex-col items-center p-3 bg-[#0e1118] border border-white/[0.07] rounded-lg w-28 text-center"
                                     style={{ boxShadow: '0 0 15px rgba(0,0,0,0.5)' }}>
                                     <p className="text-[10px] font-bold text-white/70 leading-snug">Advisory</p>
@@ -299,7 +299,7 @@ export default function Home() {
                             </div>
 
                             {/* → RIGHT: Strategy + Implementation */}
-                            <div className={`hidden lg:flex absolute -right-[160px] top-1/2 -translate-y-1/2 items-center gap-0 ${alignInView ? 'animate-slide-from-right delay-700' : 'opacity-0'}`}>
+                            <div className={`hidden lg:flex absolute -right-[140px] top-1/2 -translate-y-1/2 items-center gap-0 ${alignInView ? 'animate-slide-from-right delay-700' : 'opacity-0'}`}>
                                 <div className="flex items-center mr-1">
                                     <svg className="animate-arrow-pulse" style={{ animationDelay: '0.4s' }} width="10" height="10" viewBox="0 0 10 10" fill="none">
                                         <path d="M0 5L10 0V10L0 5Z" fill="rgba(255,189,89,0.7)" />
