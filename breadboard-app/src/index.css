@@ -26,12 +26,6 @@
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     overflow-x: hidden;
-    text-align: justify;
-  }
-
-  p {
-    text-align: justify;
-    hyphens: auto;
   }
 
   /* Custom scrollbar */
