@@ -285,15 +285,15 @@ export default function Home() {
 
                             {/* ← LEFT: Advisory + Execution */}
                             <div className={`flex absolute -left-[140px] top-1/2 -translate-y-1/2 items-center w-[140px] ${alignInView ? 'animate-slide-from-left delay-700' : 'opacity-0'}`}>
-                                <div className="flex flex-col items-center p-3 bg-[#0e1118] border border-white/[0.07] rounded-lg w-28 text-center relative z-10"
+                                <div className="flex flex-col items-center p-3 bg-[#0e1118] border border-white/[0.07] rounded-lg w-28 shrink-0 text-center relative z-10"
                                     style={{ boxShadow: '0 0 15px rgba(0,0,0,0.5)' }}>
                                     <p className="text-[10px] font-bold text-white/70 leading-snug">Advisory</p>
                                     <p className="text-[18px] leading-none text-primary/30 my-0.5">+</p>
                                     <p className="text-[10px] font-bold text-white/70 leading-snug">Execution</p>
                                 </div>
-                                <div className="flex items-center flex-1 h-full -ml-0.5 z-0">
+                                <div className="flex items-center w-[28px] shrink-0 -ml-0.5 z-0">
                                     <div className="flex-1 h-[2px] bg-gradient-to-r from-primary/30 to-primary/80 rounded-l"></div>
-                                    <svg width="10" height="12" viewBox="0 0 10 12" fill="none" className="-ml-px">
+                                    <svg width="10" height="12" viewBox="0 0 10 12" fill="none" className="shrink-0 -ml-px">
                                         <path d="M10 6L0 0V12L10 6Z" fill="rgba(255,189,89,0.8)" />
                                     </svg>
                                 </div>
@@ -301,13 +301,13 @@ export default function Home() {
 
                             {/* → RIGHT: Strategy + Implementation */}
                             <div className={`flex absolute -right-[140px] top-1/2 -translate-y-1/2 items-center w-[140px] justify-end ${alignInView ? 'animate-slide-from-right delay-700' : 'opacity-0'}`}>
-                                <div className="flex items-center flex-1 h-full -mr-0.5 z-0">
-                                    <svg width="10" height="12" viewBox="0 0 10 12" fill="none" className="-mr-px">
+                                <div className="flex items-center w-[28px] shrink-0 -mr-0.5 z-0">
+                                    <svg width="10" height="12" viewBox="0 0 10 12" fill="none" className="shrink-0 -mr-px">
                                         <path d="M0 6L10 0V12L0 6Z" fill="rgba(255,189,89,0.8)" />
                                     </svg>
                                     <div className="flex-1 h-[2px] bg-gradient-to-l from-primary/30 to-primary/80 rounded-r"></div>
                                 </div>
-                                <div className="flex flex-col items-center p-3 bg-[#0e1118] border border-white/[0.07] rounded-lg w-28 text-center relative z-10"
+                                <div className="flex flex-col items-center p-3 bg-[#0e1118] border border-white/[0.07] rounded-lg w-28 shrink-0 text-center relative z-10"
                                     style={{ boxShadow: '0 0 15px rgba(0,0,0,0.5)' }}>
                                     <p className="text-[10px] font-bold text-white/70 leading-snug">Strategy</p>
                                     <p className="text-[18px] leading-none text-primary/30 my-0.5">+</p>
