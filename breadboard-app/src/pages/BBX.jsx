@@ -228,7 +228,7 @@ export default function BBX() {
                                     {socials.map(({ name, icon }) => (
                                         <a
                                             key={name}
-                                            href={name === 'Instagram' ? 'https://www.instagram.com/breadboard.in?igsh=cG9remlrMXpvMzQ3' : name === 'X' ? 'https://x.com/breadboardindia?s=21' : name === 'YouTube' ? 'https://www.youtube.com/@BreadboardConsulting' : name === 'LinkedIn' ? 'https://www.linkedin.com/company/breadboard-india/' : name === 'Facebook' ? 'https://www.facebook.com/profile.php?id=61584892956215' : '#'}
+                                            href={name === 'Instagram' ? 'https://www.instagram.com/breadboard.in' : name === 'X' ? 'https://x.com/breadboardindia?s=21' : name === 'YouTube' ? 'https://www.youtube.com/@BreadboardConsulting' : name === 'LinkedIn' ? 'https://www.linkedin.com/company/breadboard-india/' : name === 'Facebook' ? 'https://www.facebook.com/profile.php?id=61584892956215' : '#'}
                                             target="_blank"
                                             rel="noopener noreferrer"
                                             className="w-10 h-10 bg-white/5 border border-white/10 hover:bg-primary hover:text-black hover:border-primary flex items-center justify-center transition-all duration-300 text-white/40 rounded-lg"

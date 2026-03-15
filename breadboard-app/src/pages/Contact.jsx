@@ -135,7 +135,7 @@ export default function Contact() {
                                     ].map(({ name, icon }) => (
                                         <a
                                             key={name}
-                                            href={name === 'Instagram' ? 'https://www.instagram.com/breadboard.in?igsh=cG9remlrMXpvMzQ3' : name === 'X' ? 'https://x.com/breadboardindia?s=21' : name === 'YouTube' ? 'https://www.youtube.com/@BreadboardConsulting' : name === 'LinkedIn' ? 'https://www.linkedin.com/company/breadboard-india/' : name === 'Facebook' ? 'https://www.facebook.com/profile.php?id=61584892956215' : '#'}
+                                            href={name === 'Instagram' ? 'https://www.instagram.com/breadboard.in' : name === 'X' ? 'https://x.com/breadboardindia?s=21' : name === 'YouTube' ? 'https://www.youtube.com/@BreadboardConsulting' : name === 'LinkedIn' ? 'https://www.linkedin.com/company/breadboard-india/' : name === 'Facebook' ? 'https://www.facebook.com/profile.php?id=61584892956215' : '#'}
                                             target="_blank"
                                             rel="noopener noreferrer"
                                             className="w-10 h-10 bg-black/5 flex items-center justify-center text-black/30 hover:bg-primary hover:text-black transition-all duration-300"
