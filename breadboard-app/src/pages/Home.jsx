@@ -227,7 +227,8 @@ export default function Home() {
 
                     {/* ══════════════ DIAGRAM ══════════════ */}
                     <div className="w-full overflow-x-auto pb-8 pt-4 custom-scrollbar">
-                        <div className="max-w-4xl mx-auto relative px-[160px] lg:px-[180px] min-w-[850px] md:min-w-[900px] max-sm:[zoom:0.55]">
+                        <div className="flex justify-center max-sm:scale-[0.55] max-sm:origin-top max-sm:min-h-[1800px]">
+                        <div className="max-w-4xl mx-auto relative px-[160px] lg:px-[180px] min-w-[850px] md:min-w-[900px]">
 
                         {/* ────────────────────────────────────
                             TIER 1 — STRATEGIC INTENT
@@ -445,6 +446,7 @@ export default function Home() {
                                     </div>
                                 ))}
                             </div>
+                        </div>
                         </div>
                         </div>
                     </div>
