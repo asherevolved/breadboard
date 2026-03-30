@@ -205,6 +205,88 @@
   transform: scale(1.08);
 }
 
+/* iPhone-first scaling for the alignment diagram */
+.diagram-scale {
+  transform-origin: top center;
+  will-change: transform;
+}
+
+/* High-contrast arrows for iOS */
+.diagram-arrow-vert {
+  width: 3px;
+  background: linear-gradient(to bottom, rgba(255, 189, 89, 0.95), rgba(255, 189, 89, 0.7));
+  border-radius: 2px;
+  box-shadow: 0 0 6px rgba(255, 189, 89, 0.5);
+}
+
+.diagram-arrow-line {
+  height: 4px;
+  background: linear-gradient(to right, rgba(255, 189, 89, 0.9), rgba(255, 189, 89, 1));
+  border-radius: 2px;
+  box-shadow: 0 0 6px rgba(255, 189, 89, 0.5);
+}
+
+.diagram-arrowhead {
+  filter: drop-shadow(0 0 4px rgba(255, 189, 89, 0.6));
+  will-change: transform;
+  transform: translateZ(0);
+}
+
+@media (max-width: 360px) {
+  .diagram-scale {
+    transform: scale(0.60);
+    min-height: 1600px;
+  }
+}
+
+@media (min-width: 361px) and (max-width: 375px) {
+  .diagram-scale {
+    transform: scale(0.62);
+    min-height: 1600px;
+  }
+}
+
+@media (min-width: 376px) and (max-width: 390px) {
+  .diagram-scale {
+    transform: scale(0.66);
+    min-height: 1500px;
+  }
+}
+
+@media (min-width: 391px) and (max-width: 414px) {
+  .diagram-scale {
+    transform: scale(0.70);
+    min-height: 1500px;
+  }
+}
+
+@media (min-width: 415px) and (max-width: 428px) {
+  .diagram-scale {
+    transform: scale(0.74);
+    min-height: 1450px;
+  }
+}
+
+@media (min-width: 429px) and (max-width: 480px) {
+  .diagram-scale {
+    transform: scale(0.80);
+    min-height: 1400px;
+  }
+}
+
+@media (min-width: 481px) and (max-width: 640px) {
+  .diagram-scale {
+    transform: scale(0.90);
+    min-height: 1300px;
+  }
+}
+
+@media (min-width: 641px) {
+  .diagram-scale {
+    transform: none;
+  }
+}
+
 /* ── Alignment Model animations ── */
 @keyframes flow-down {
   0% {

@@ -228,7 +228,7 @@ export default function Home() {
                     {/* ══════════════ DIAGRAM ══════════════ */}
                     <div className="w-full overflow-x-auto pb-8 pt-4 custom-scrollbar">
                         <div className="flex justify-center max-sm:scale-[0.55] max-sm:origin-top max-sm:min-h-[1800px]">
-                        <div className="max-w-4xl mx-auto relative px-[160px] lg:px-[180px] min-w-[850px] md:min-w-[900px]">
+                        <div className="max-w-4xl mx-auto relative px-[160px] lg:px-[180px] min-w-[850px] md:min-w-[900px] overflow-visible diagram-scale">
 
                         {/* ────────────────────────────────────
                             TIER 1 — STRATEGIC INTENT
@@ -269,14 +269,17 @@ export default function Home() {
                             </div>
                         </div>
 
-                        {/* ── ANIMATED CONNECTOR 1 → 2 ── */}
-                        <div className={`flex justify-center my-2 ${alignInView ? 'animate-fade-in delay-500' : 'opacity-0'}`}>
-                            <div className="flex flex-col items-center gap-0">
-                                <div className="w-px h-8 bg-gradient-to-b from-primary/30 to-primary/60"></div>
-                                <svg className="animate-arrow-pulse" width="20" height="12" viewBox="0 0 20 12" fill="none">
-                                    <path d="M10 12L0 0H20L10 12Z" fill="rgba(255,189,89,0.7)" />
-                                </svg>
-                            </div>
+                        <div className={`grid grid-cols-3 gap-3 my-2 ${alignInView ? 'animate-fade-in delay-500' : 'opacity-0'}`}>
+                            {[0,1,2].map((i) => (
+                                <div key={i} className="flex justify-center">
+                                    <div className="flex flex-col items-center gap-0">
+                                        <div className="diagram-arrow-vert h-8"></div>
+                                        <svg className="animate-arrow-pulse diagram-arrowhead" width="24" height="14" viewBox="0 0 20 12" fill="none" aria-hidden="true">
+                                            <path d="M10 12L0 0H20L10 12Z" fill="#ffbd59" />
+                                        </svg>
+                                    </div>
+                                </div>
+                            ))}
                         </div>
 
                         {/* ────────────────────────────────────
@@ -285,28 +288,34 @@ export default function Home() {
                         <div className={`relative ${alignInView ? 'animate-fade-up delay-550' : 'opacity-0'}`}>
 
                             {/* ← LEFT: Advisory + Execution */}
-                            <div className={`flex absolute -left-[140px] top-1/2 -translate-y-1/2 items-center w-[140px] ${alignInView ? 'animate-slide-from-left delay-700' : 'opacity-0'}`}>
+                            <div className={`flex absolute -left-[140px] top-1/2 -translate-y-1/2 items-center w-[160px] z-20 pointer-events-none ${alignInView ? 'animate-slide-from-left delay-700' : 'opacity-0'}`}>
                                 <div className="flex flex-col items-center p-3 bg-[#0e1118] border border-white/[0.07] rounded-lg w-28 shrink-0 text-center relative z-10"
                                     style={{ boxShadow: '0 0 15px rgba(0,0,0,0.5)' }}>
                                     <p className="text-[10px] font-bold text-white/70 leading-snug">Advisory</p>
                                     <p className="text-[18px] leading-none text-primary/30 my-0.5">+</p>
                                     <p className="text-[10px] font-bold text-white/70 leading-snug">Execution</p>
                                 </div>
-                                <div className="flex items-center w-[28px] shrink-0 -ml-0.5 z-0">
-                                    <div className="flex-1 h-[2px] bg-gradient-to-r from-primary/30 to-primary/80 rounded-l"></div>
-                                    <svg width="10" height="12" viewBox="0 0 10 12" fill="none" className="shrink-0 -ml-px">
-                                        <path d="M10 6L0 0V12L10 6Z" fill="rgba(255,189,89,0.8)" />
+                                <div className="flex items-center w-[56px] shrink-0 -ml-1 z-0">
+                                    <svg width="12" height="14" viewBox="0 0 10 12" fill="none" className="shrink-0 -mr-1 diagram-arrowhead" aria-hidden="true">
+                                        <path d="M0 6L10 0V12L0 6Z" fill="#ffbd59" />
+                                    </svg>
+                                    <div className="flex-1 diagram-arrow-line"></div>
+                                    <svg width="12" height="14" viewBox="0 0 10 12" fill="none" className="shrink-0 -ml-1 diagram-arrowhead" aria-hidden="true">
+                                        <path d="M10 6L0 0V12L10 6Z" fill="#ffbd59" />
                                     </svg>
                                 </div>
                             </div>
 
                             {/* → RIGHT: Strategy + Implementation */}
-                            <div className={`flex absolute -right-[140px] top-1/2 -translate-y-1/2 items-center w-[140px] justify-end ${alignInView ? 'animate-slide-from-right delay-700' : 'opacity-0'}`}>
-                                <div className="flex items-center w-[28px] shrink-0 -mr-0.5 z-0">
-                                    <svg width="10" height="12" viewBox="0 0 10 12" fill="none" className="shrink-0 -mr-px">
-                                        <path d="M0 6L10 0V12L0 6Z" fill="rgba(255,189,89,0.8)" />
+                            <div className={`flex absolute -right-[140px] top-1/2 -translate-y-1/2 items-center w-[160px] justify-end z-20 pointer-events-none ${alignInView ? 'animate-slide-from-right delay-700' : 'opacity-0'}`}>
+                                <div className="flex items-center w-[56px] shrink-0 -mr-1 z-0">
+                                    <svg width="12" height="14" viewBox="0 0 10 12" fill="none" className="shrink-0 -mr-1 diagram-arrowhead" aria-hidden="true">
+                                        <path d="M0 6L10 0V12L0 6Z" fill="#ffbd59" />
                                     </svg>
-                                    <div className="flex-1 h-[2px] bg-gradient-to-l from-primary/30 to-primary/80 rounded-r"></div>
+                                    <div className="flex-1 diagram-arrow-line"></div>
+                                    <svg width="12" height="14" viewBox="0 0 10 12" fill="none" className="shrink-0 -ml-1 diagram-arrowhead" aria-hidden="true">
+                                        <path d="M10 6L0 0V12L10 6Z" fill="#ffbd59" />
+                                    </svg>
                                 </div>
                                 <div className="flex flex-col items-center p-3 bg-[#0e1118] border border-white/[0.07] rounded-lg w-28 shrink-0 text-center relative z-10"
                                     style={{ boxShadow: '0 0 15px rgba(0,0,0,0.5)' }}>
@@ -320,12 +329,12 @@ export default function Home() {
                             <div className={`relative bg-[#0b1119] border-2 border-primary/35 rounded-xl overflow-hidden ${alignInView ? 'animate-glow-pulse' : ''}`}
                                 style={{ boxShadow: '0 0 60px rgba(255,189,89,0.08), inset 0 1px 0 rgba(255,189,89,0.1)' }}>
                                 {/* Top accent line */}
-                                <div className="absolute top-0 left-0 w-full h-[2px] bg-gradient-to-r from-transparent via-primary/70 to-transparent"></div>
+                                <div className="absolute top-0 left-0 w-full h-[3px] bg-gradient-to-r from-transparent via-primary to-transparent"></div>
                                 {/* Top-left/right corner marks */}
-                                <div className="absolute top-2 left-2 w-3 h-3 border-l-2 border-t-2 border-primary/50 rounded-tl"></div>
-                                <div className="absolute top-2 right-2 w-3 h-3 border-r-2 border-t-2 border-primary/50 rounded-tr"></div>
-                                <div className="absolute bottom-2 left-2 w-3 h-3 border-l-2 border-b-2 border-primary/30 rounded-bl"></div>
-                                <div className="absolute bottom-2 right-2 w-3 h-3 border-r-2 border-b-2 border-primary/30 rounded-br"></div>
+                                <div className="absolute top-2 left-2 w-3 h-3 border-l-2 border-t-2 border-primary rounded-tl"></div>
+                                <div className="absolute top-2 right-2 w-3 h-3 border-r-2 border-t-2 border-primary rounded-tr"></div>
+                                <div className="absolute bottom-2 left-2 w-3 h-3 border-l-2 border-b-2 border-primary/80 rounded-bl"></div>
+                                <div className="absolute bottom-2 right-2 w-3 h-3 border-r-2 border-b-2 border-primary/80 rounded-br"></div>
 
                                 <div className="p-6 md:p-8">
                                     {/* Header */}
@@ -367,9 +376,9 @@ export default function Home() {
                         {/* ── ANIMATED CONNECTOR 2 → 3 ── */}
                         <div className={`flex justify-center my-2 ${alignInView ? 'animate-fade-in delay-1000' : 'opacity-0'}`}>
                             <div className="flex flex-col items-center">
-                                <div className="w-px h-8 bg-gradient-to-b from-primary/60 to-primary/30"></div>
-                                <svg className="animate-arrow-pulse" style={{ animationDelay: '0.8s' }} width="20" height="12" viewBox="0 0 20 12" fill="none">
-                                    <path d="M10 12L0 0H20L10 12Z" fill="rgba(255,189,89,0.7)" />
+                                <div className="diagram-arrow-vert h-8"></div>
+                                <svg className="animate-arrow-pulse diagram-arrowhead" style={{ animationDelay: '0.8s' }} width="24" height="14" viewBox="0 0 20 12" fill="none" aria-hidden="true">
+                                    <path d="M10 12L0 0H20L10 12Z" fill="#ffbd59" />
                                 </svg>
                             </div>
                         </div>
