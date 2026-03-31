@@ -205,8 +205,20 @@
   transform: scale(1.08);
 }
 
-/* iPhone-first scaling for the alignment diagram */
+/* iPhone-first framing + scaling for the alignment diagram */
+.diagram-frame {
+  width: 100%;
+  height: 92svh;
+  max-height: 900px;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  padding-top: 8px;
+}
+
 .diagram-scale {
+  transform: scale(var(--diagram-fit, 1));
   transform-origin: top center;
   will-change: transform;
 }
@@ -232,58 +244,48 @@
   transform: translateZ(0);
 }
 
-@media (max-width: 360px) {
-  .diagram-scale {
-    transform: scale(0.60);
-    min-height: 1600px;
+@media (max-width: 320px) {
+  .diagram-frame {
+    height: 94svh;
   }
 }
 
-@media (min-width: 361px) and (max-width: 375px) {
-  .diagram-scale {
-    transform: scale(0.62);
-    min-height: 1600px;
+@media (min-width: 321px) and (max-width: 375px) {
+  .diagram-frame {
+    height: 93svh;
   }
 }
 
 @media (min-width: 376px) and (max-width: 390px) {
-  .diagram-scale {
-    transform: scale(0.66);
-    min-height: 1500px;
+  .diagram-frame {
+    height: 92svh;
   }
 }
 
 @media (min-width: 391px) and (max-width: 414px) {
-  .diagram-scale {
-    transform: scale(0.70);
-    min-height: 1500px;
+  .diagram-frame {
+    height: 91svh;
   }
 }
 
 @media (min-width: 415px) and (max-width: 428px) {
-  .diagram-scale {
-    transform: scale(0.74);
-    min-height: 1450px;
+  .diagram-frame {
+    height: 90svh;
   }
 }
 
-@media (min-width: 429px) and (max-width: 480px) {
-  .diagram-scale {
-    transform: scale(0.80);
-    min-height: 1400px;
+@media (min-width: 429px) {
+  .diagram-frame {
+    height: 88svh;
   }
 }
 
-@media (min-width: 481px) and (max-width: 640px) {
-  .diagram-scale {
-    transform: scale(0.90);
-    min-height: 1300px;
-  }
-}
-
-@media (min-width: 641px) {
-  .diagram-scale {
-    transform: none;
+@media (min-width: 768px) {
+  .diagram-frame {
+    height: auto;
+    max-height: none;
+    overflow: visible;
+    padding-top: 0;
   }
 }
 

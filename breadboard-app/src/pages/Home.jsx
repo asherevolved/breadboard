@@ -26,9 +26,48 @@ export default function Home() {
     const [heroRef, heroInView] = useInView(0.1);
     const [introRef, introInView] = useInView();
     const [gapRef, gapInView] = useInView();
-    const [modelRef, modelInView] = useInView();
     const [servRef, servInView] = useInView();
     const [alignRef, alignInView] = useInView(0.08);
+    const diagramFrameRef = useRef(null);
+    const diagramShellRef = useRef(null);
+    const diagramContentRef = useRef(null);
+
+    useEffect(() => {
+        const frame = diagramFrameRef.current;
+        const shell = diagramShellRef.current;
+        const content = diagramContentRef.current;
+        if (!frame || !shell || !content) return;
+
+        const update = () => {
+            window.requestAnimationFrame(() => {
+                const frameRect = frame.getBoundingClientRect();
+                const maxWidth = frameRect.width || 1;
+                const maxHeight = frameRect.height || Number.POSITIVE_INFINITY;
+
+                const naturalWidth = content.scrollWidth || 1;
+                const naturalHeight = content.scrollHeight || 1;
+
+                const nextScale = Math.min(1, maxWidth / naturalWidth, maxHeight / naturalHeight);
+                const finalScale = Number.isFinite(nextScale) ? Math.max(0.1, nextScale) : 1;
+
+                content.style.setProperty('--diagram-fit', `${finalScale}`);
+                shell.style.height = `${Math.ceil(naturalHeight * finalScale)}px`;
+            });
+        };
+
+        update();
+        window.addEventListener('resize', update);
+        window.addEventListener('orientationchange', update);
+
+        const ro = new ResizeObserver(update);
+        ro.observe(content);
+
+        return () => {
+            window.removeEventListener('resize', update);
+            window.removeEventListener('orientationchange', update);
+            ro.disconnect();
+        };
+    }, []);
 
     return (
         <>
@@ -116,7 +155,7 @@ export default function Home() {
                     </div>
 
                     <div className={`grid grid-cols-1 md:grid-cols-2 gap-6 ${servInView ? 'animate-fade-up delay-200' : 'opacity-0'}`}>
-                        {services.map((s, i) => (
+                        {services.map((s) => (
                             <Link
                                 to="/services"
                                 key={s.title}
@@ -211,7 +250,7 @@ export default function Home() {
             {/* Smooth white-to-dark gradient connector */}
             <div className="h-20 bg-gradient-to-b from-white to-[#080a0f]"></div>
 
-            <section ref={alignRef} className="py-16 md:py-24 bg-[#080a0f] relative overflow-hidden">
+            <section ref={alignRef} className="py-10 md:py-24 bg-[#080a0f] relative overflow-hidden">
                 {/* Background grid pattern */}
                 <div className="absolute inset-0 pointer-events-none opacity-[0.025]"
                     style={{ backgroundImage: 'linear-gradient(rgba(255,189,89,0.3) 1px, transparent 1px), linear-gradient(90deg, rgba(255,189,89,0.3) 1px, transparent 1px)', backgroundSize: '60px 60px' }}>
@@ -226,9 +265,10 @@ export default function Home() {
 
 
                     {/* ══════════════ DIAGRAM ══════════════ */}
-                    <div className="w-full overflow-x-auto pb-8 pt-4 custom-scrollbar">
-                        <div className="flex justify-center max-sm:scale-[0.55] max-sm:origin-top max-sm:min-h-[1800px]">
-                        <div className="max-w-4xl mx-auto relative px-[160px] lg:px-[180px] min-w-[850px] md:min-w-[900px] overflow-visible diagram-scale">
+                    <div ref={diagramFrameRef} className="diagram-frame">
+                        <div ref={diagramShellRef} className="relative w-full">
+                            <div className="absolute top-0 left-0 w-full flex justify-center">
+                                <div ref={diagramContentRef} className="diagram-scale relative overflow-visible px-[120px] sm:px-[160px] lg:px-[180px] w-[850px] md:w-[900px]">
 
                         {/* ────────────────────────────────────
                             TIER 1 — STRATEGIC INTENT
@@ -288,14 +328,14 @@ export default function Home() {
                         <div className={`relative ${alignInView ? 'animate-fade-up delay-550' : 'opacity-0'}`}>
 
                             {/* ← LEFT: Advisory + Execution */}
-                            <div className={`flex absolute -left-[140px] top-1/2 -translate-y-1/2 items-center w-[160px] z-20 pointer-events-none ${alignInView ? 'animate-slide-from-left delay-700' : 'opacity-0'}`}>
+                            <div className={`flex absolute max-sm:-left-[115px] -left-[140px] top-1/2 -translate-y-1/2 items-center max-sm:w-[140px] w-[160px] z-20 pointer-events-none ${alignInView ? 'animate-slide-from-left delay-700' : 'opacity-0'}`}>
                                 <div className="flex flex-col items-center p-3 bg-[#0e1118] border border-white/[0.07] rounded-lg w-28 shrink-0 text-center relative z-10"
                                     style={{ boxShadow: '0 0 15px rgba(0,0,0,0.5)' }}>
                                     <p className="text-[10px] font-bold text-white/70 leading-snug">Advisory</p>
                                     <p className="text-[18px] leading-none text-primary/30 my-0.5">+</p>
                                     <p className="text-[10px] font-bold text-white/70 leading-snug">Execution</p>
                                 </div>
-                                <div className="flex items-center w-[56px] shrink-0 -ml-1 z-0">
+                                <div className="flex items-center max-sm:w-[44px] w-[56px] shrink-0 -ml-1 z-0">
                                     <svg width="12" height="14" viewBox="0 0 10 12" fill="none" className="shrink-0 -mr-1 diagram-arrowhead" aria-hidden="true">
                                         <path d="M0 6L10 0V12L0 6Z" fill="#ffbd59" />
                                     </svg>
@@ -307,8 +347,8 @@ export default function Home() {
                             </div>
 
                             {/* → RIGHT: Strategy + Implementation */}
-                            <div className={`flex absolute -right-[140px] top-1/2 -translate-y-1/2 items-center w-[160px] justify-end z-20 pointer-events-none ${alignInView ? 'animate-slide-from-right delay-700' : 'opacity-0'}`}>
-                                <div className="flex items-center w-[56px] shrink-0 -mr-1 z-0">
+                            <div className={`flex absolute max-sm:-right-[115px] -right-[140px] top-1/2 -translate-y-1/2 items-center max-sm:w-[140px] w-[160px] justify-end z-20 pointer-events-none ${alignInView ? 'animate-slide-from-right delay-700' : 'opacity-0'}`}>
+                                <div className="flex items-center max-sm:w-[44px] w-[56px] shrink-0 -mr-1 z-0">
                                     <svg width="12" height="14" viewBox="0 0 10 12" fill="none" className="shrink-0 -mr-1 diagram-arrowhead" aria-hidden="true">
                                         <path d="M0 6L10 0V12L0 6Z" fill="#ffbd59" />
                                     </svg>
@@ -447,7 +487,7 @@ export default function Home() {
                                     { icon: 'precision_manufacturing', label: 'Robust Systems', delay: 'delay-[1.5s]' },
                                     { icon: 'assessment', label: 'Measurable Impact', delay: 'delay-[1.55s]' },
                                     { icon: 'eco', label: 'Sustainable Growth', delay: 'delay-[1.6s]' },
-                                ].map((item, i) => (
+                                ].map((item) => (
                                     <div key={item.label}
                                         className={`group flex items-center gap-2 px-3.5 py-2 bg-[#0e1118] border border-white/[0.07] hover:border-primary/30 hover:bg-primary/[0.04] rounded transition-all duration-300 cursor-default ${alignInView ? `animate-card-pop ${item.delay}` : 'opacity-0'}`}>
                                         <span className="material-symbols-outlined text-primary text-[16px] group-hover:scale-110 transition-transform">{item.icon}</span>
@@ -456,7 +496,8 @@ export default function Home() {
                                 ))}
                             </div>
                         </div>
-                        </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
