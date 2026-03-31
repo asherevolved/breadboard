@@ -218,6 +218,7 @@
 }
 
 .diagram-scale {
+  --diagram-desktop-zoom: 1;
   transform: scale(var(--diagram-fit, 1));
   transform-origin: top center;
   will-change: transform;
@@ -286,6 +287,22 @@
     max-height: none;
     overflow: visible;
     padding-top: 0;
+  }
+
+  .diagram-scale {
+    --diagram-desktop-zoom: 1.12;
+  }
+}
+
+@media (min-width: 1366px) {
+  .diagram-scale {
+    --diagram-desktop-zoom: 1.15;
+  }
+}
+
+@media (min-width: 1920px) {
+  .diagram-scale {
+    --diagram-desktop-zoom: 1.18;
   }
 }
 

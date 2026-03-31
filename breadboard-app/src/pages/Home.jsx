@@ -41,17 +41,22 @@ export default function Home() {
         const update = () => {
             window.requestAnimationFrame(() => {
                 const frameRect = frame.getBoundingClientRect();
+                const isDesktop = window.innerWidth >= 768;
                 const maxWidth = frameRect.width || 1;
-                const maxHeight = frameRect.height || Number.POSITIVE_INFINITY;
+                const maxHeight = isDesktop ? Number.POSITIVE_INFINITY : (frameRect.height || Number.POSITIVE_INFINITY);
 
                 const naturalWidth = content.scrollWidth || 1;
                 const naturalHeight = content.scrollHeight || 1;
+                const desktopZoom = Number.parseFloat(
+                    window.getComputedStyle(content).getPropertyValue('--diagram-desktop-zoom')
+                ) || 1;
 
-                const nextScale = Math.min(1, maxWidth / naturalWidth, maxHeight / naturalHeight);
+                const nextScale = Math.min(maxWidth / naturalWidth, maxHeight / naturalHeight);
                 const finalScale = Number.isFinite(nextScale) ? Math.max(0.1, nextScale) : 1;
+                const appliedScale = isDesktop ? Math.min(finalScale, desktopZoom) : Math.min(finalScale, 1);
 
-                content.style.setProperty('--diagram-fit', `${finalScale}`);
-                shell.style.height = `${Math.ceil(naturalHeight * finalScale)}px`;
+                content.style.setProperty('--diagram-fit', `${appliedScale}`);
+                shell.style.height = `${Math.ceil(naturalHeight * appliedScale)}px`;
             });
         };
 
